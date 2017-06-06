@@ -8,7 +8,7 @@
  * Controller of the galgasWebEditorApp
  */
 app
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, $route) {
     $scope.projects = [
       {
         name : "Global",
@@ -27,6 +27,8 @@ app
 
       }
     ];
+
+    $scope.newProjectRoute = $route.getRoute('newProject');
 
     $scope.init = function(){
 

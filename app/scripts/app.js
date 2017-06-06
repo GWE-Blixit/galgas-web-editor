@@ -47,7 +47,7 @@ app
         var result = null;
         angular.forEach($delegate.routes, function(config, route) {
           if (config.name === name) {
-            result = route;
+            result = '#!'+route;
           }
         });
         return result;
@@ -58,7 +58,27 @@ app
 
   });
 
-app.run(function($rootScope) {
+app.directive('ngConfirmClick', [
+  function(){
+    return {
+      priority: -1,
+      restrict: 'A',
+      scope: { confirmFunction: "&ngConfirmClick" },
+      link: function( scope, element, attrs ){
+        element.bind( 'click', function( e ){
+          // message defaults to "Are you sure?"
+          var message = attrs.ngConfirmClickMessage ? attrs.ngConfirmClickMessage : "Are you sure?";
+          // confirm() requires jQuery
+          if( confirm( message ) ) {
+            scope.confirmFunction();
+          }
+        });
+      }
+    }
+  }
+]);
+
+app.run(function($rootScope, $route) {
   $rootScope.views = {
     menus : {
       menu : "views/menus/menu.html"
@@ -67,6 +87,15 @@ app.run(function($rootScope) {
       footer : "views/footers/footer.html"
     }
   };
+
+  $rootScope.links = {
+    menu : {
+      'home' : $route.getRoute('home'),
+      'new' : $route.getRoute('newProject')
+    }
+  }
+
+  console.log($rootScope.links);
 
 });
 

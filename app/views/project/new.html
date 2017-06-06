@@ -1,0 +1,67 @@
+<div class="container">
+  <h1>New Galgas Project</h1>
+
+  <form  action="">
+    <fieldset class="form-group">
+      <h3>Informations</h3>
+      <label>Name :</label>
+      <input type="text" class="form-control">
+
+      <br>
+      <label>Version :</label>
+      <div class="row" >
+        <div class="col-xs-2" >
+          <input type="number" class="form-control ">
+        </div>
+        <div class="col-xs-2" >
+          <input type="number" class="form-control ">
+        </div>
+        <div class="col-xs-2" >
+          <input type="number" class="form-control ">
+        </div>
+      </div>
+
+    </fieldset>
+
+    <fieldset class="form-group">
+      <h3>Targets</h3>
+      <div>
+        <label>Add a target : </label><br>
+        <select class="form-control inline" style="width: 80%; display: inline; margin-right: 10px" >
+          <option ng-repeat="target in targets" value="{{target.name}}"> {{target.name}} </option>
+        </select>
+        <button class="btn btn-primary inline"><i class="fa fa-plus"></i></button>
+      </div>
+      <br>
+      <div class="" ng-show="targets.length>0">
+        <label>Selected targets : </label>
+        <ul class="" ng-repeat="target in targets">
+          <li>{{target.name}}</li>
+        </ul>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <h3>Properties</h3>
+      <div>
+        <label>Add a property : </label><br>
+        <select class="form-control inline" style="width: 80%; display: inline; margin-right: 10px" >
+          <option ng-repeat="property in properties" value="{{property.name}}"> {{property.name}} </option>
+        </select>
+        <button class="btn btn-primary inline"><i class="fa fa-plus"></i></button>
+      </div>
+      <br>
+      <div class="" ng-show="properties.length>0">
+        <label>Added properties : </label>
+        <ul class="" ng-repeat="property in properties">
+          <li>{{property.name}}</li>
+        </ul>
+      </div>
+    </fieldset>
+
+    <input class="btn btn-primary " type="button" value="Submit" />
+    <a class="btn btn-danger " href="{{homeRoute}}" ng-confirm-click="" ng-confirm-click-message="By leaving this page, you accept to lose your data. Do you confirm ? ">Cancel</a>
+
+  </form>
+
+</div>

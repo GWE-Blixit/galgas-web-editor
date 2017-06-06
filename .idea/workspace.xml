@@ -21,24 +21,37 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="38" column="29" lean-forward="false" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+            <state relative-caret-position="284">
+              <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+              <folding>
+                <element signature="e#862#1156#0" expanded="false" />
+                <element signature="e#907#1124#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="455">
+              <caret line="54" column="51" lean-forward="false" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
+            <state relative-caret-position="30">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="8" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/main.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="435">
@@ -51,11 +64,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="newProject.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/newProject.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/project/new.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="menu.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/menus/menu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="19" column="62" lean-forward="false" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+            <state relative-caret-position="195">
+              <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
               <folding>
                 <element signature="n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
               </folding>
@@ -69,21 +102,23 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/app/views/menu.html" />
         <option value="$PROJECT_DIR$/app/views/footers/footer.html" />
-        <option value="$PROJECT_DIR$/app/index.html" />
-        <option value="$PROJECT_DIR$/app/scripts/app.js" />
-        <option value="$PROJECT_DIR$/app/views/menus/menu.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/app/views/main.html" />
+        <option value="$PROJECT_DIR$/app/views/menus/menu.html" />
+        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/newProject.js" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
       </list>
     </option>
   </component>
@@ -146,64 +181,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galgas-web-editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galgas-web-editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galgas-web-editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galgas-web-editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galgas-web-editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galgas-web-editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -223,6 +200,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/project" />
       <recent name="$PROJECT_DIR$/app/views/menu" />
     </key>
   </component>
@@ -291,12 +269,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1496767876137</updated>
-      <workItem from="1496767886911" duration="6723000" />
+      <workItem from="1496767886911" duration="8930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6723000" />
+    <option name="totallyTimeSpent" value="8930000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="24" width="1869" height="1056" extended-state="6" />
@@ -332,14 +310,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -356,37 +326,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="38" column="29" lean-forward="false" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/menus/menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="62" lean-forward="false" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
+        <state relative-caret-position="195">
+          <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
           <folding>
             <element signature="n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="45" lean-forward="false" selection-start-line="25" selection-start-column="45" selection-end-line="25" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -398,6 +344,57 @@
             <element signature="n#style#0;n#a#0;n#h1#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/project/new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="54" column="51" lean-forward="false" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/newProject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+          <folding>
+            <element signature="e#862#1156#0" expanded="false" />
+            <element signature="e#907#1124#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="8" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>

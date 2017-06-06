@@ -7,11 +7,8 @@
  * # MainCtrl
  * Controller of the galgasWebEditorApp
  */
-angular.module('galgasWebEditorApp')
+app
   .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
+
   });

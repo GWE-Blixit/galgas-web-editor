@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>My Projects
+    <a class="fa fa-plus-circle fa-x pull-right" style="color: hotpink; text-decoration: none; cursor: pointer"></a>
+  </h1>
+</div>
+<br>
+
+<div class="container">
+  <div ng-repeat="(key, value) in projects">
+    <div class="panel panel-primary">
+    <div class="panel-body">
+
+      <span class="pull-right">
+        <a class="fa fa-edit" href=""></a>
+        <a class="fa fa-trash" href=""></a>
+      </span>
+      <a href="" style="text-decoration: none"><h3>{{value.name}}</h3></a>
+    </div>
+
+    <div class="panel-body">
+      {{value.description}}
+    </div>
+
+  </div>
+  </div>
+
+</div>

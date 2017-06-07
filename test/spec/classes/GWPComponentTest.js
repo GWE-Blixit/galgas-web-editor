@@ -27,4 +27,25 @@ describe('Testing Class : GWPComponent', function () {
     expect(component.object).to.have.key('test')
 
   });
+
+  it('should test component type', function () {
+
+    var component = new GWPComponent('name');
+    expect(component.type).to.be(null);
+
+    component = new GWPComponentGrammar('name');
+    expect(component.type).to.be('grammar');
+
+    component = new GWPComponentSyntax('name');
+    expect(component.type).to.be('syntax');
+
+    component = new GWPComponentLexicon('name');
+    expect(component.type).to.be('lexicon');
+
+    component = new GWPComponentProgram('name');
+    expect(component.type).to.be('program');
+
+
+
+  });
 });

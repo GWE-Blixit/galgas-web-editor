@@ -30,20 +30,31 @@ describe('Testing Class : GWPComponent', function () {
 
   it('should test component type', function () {
 
+    /**
+     * @return {string}
+     */
+    var MOCKVIEW = function (type) {
+      return 'editor/'+type+'.html';
+    };
+
     var component = new GWPComponent('name');
     expect(component.type).to.be(null);
 
     component = new GWPComponentGrammar('name');
     expect(component.type).to.be('grammar');
+    expect(component.getView()).to.be(MOCKVIEW(component.type));
 
     component = new GWPComponentSyntax('name');
     expect(component.type).to.be('syntax');
+    expect(component.getView()).to.be(MOCKVIEW(component.type));
 
     component = new GWPComponentLexicon('name');
     expect(component.type).to.be('lexicon');
+    expect(component.getView()).to.be(MOCKVIEW(component.type));
 
     component = new GWPComponentProgram('name');
     expect(component.type).to.be('program');
+    expect(component.getView()).to.be(MOCKVIEW(component.type));
 
 
 

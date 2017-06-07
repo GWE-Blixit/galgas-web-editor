@@ -18,6 +18,10 @@ function GWPComponent(name, useEditor, object){
   this.object = object || null;
   this.sourceCode = "";
 
+  this.getView = function(){
+    return 'editor/'+this.type+'.html';
+  }
+
 }
 
 /**
@@ -55,6 +59,7 @@ GWPComponentSyntax.prototype = new GWPComponent;
  */
 function GWPComponentLexicon(name, useEditor, object){
   this.type = 'lexicon';
+
 
 }
 GWPComponentLexicon.prototype = new GWPComponent;

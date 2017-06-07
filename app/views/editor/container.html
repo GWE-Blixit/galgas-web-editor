@@ -1,14 +1,10 @@
 <div class="" ng-init="init()">
-  <h1>Editor is in construction ... </h1>
-  <!-- EDITOR VIEW-->
-  <div ng-show="component.useEditor">
-    //Editor
+  <div class="navbar navbar-default" style="margin-top: 50px">
+    <h1>Editor is in construction ... </h1>
   </div>
-  <!-- EDITOR VIEW END-->
 
-  <!-- FORM VIEW-->
-  <div ng-show="! component.useEditor">
-    //Form
+  <div class="row" ng-include="'views/'+component.getView()">
+
   </div>
-  <!-- FORM VIEW END-->
+
 </div>

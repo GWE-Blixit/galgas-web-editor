@@ -36,7 +36,7 @@
       <div class="" ng-show="targets.length>0">
         <label>Selected targets : </label>
         <ul class="" ng-repeat="target in targets">
-          <li>{{target.name}}</li>
+          <li>{{target}} <i class="fa fa-close pull-right" ng-click="" ></i></li>
         </ul>
       </div>
     </fieldset>
@@ -51,10 +51,10 @@
         <button class="btn btn-primary inline"><i class="fa fa-plus"></i></button>
       </div>
       <br>
-      <div class="" ng-show="properties.length>0">
+      <div class="" ng-show="!properties.empty()">
         <label>Added properties : </label>
-        <ul class="" ng-repeat="property in properties">
-          <li>{{property.name}}</li>
+        <ul class="" ng-repeat="(key,value) in properties">
+          <li>{{key}} : {{value}}</li>
         </ul>
       </div>
     </fieldset>

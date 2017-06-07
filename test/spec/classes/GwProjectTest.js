@@ -6,6 +6,9 @@
 describe('Testing Class : GWProject', function () {
 
 
+  it('should test the constructor with parameters', function () {
+    var project = new GWProject("project", "This is the description", [1,2,3]);
+  });
 
   it('should test getters and setters', function () {
     var project = new GWProject();
@@ -55,14 +58,7 @@ describe('Testing Class : GWProject', function () {
 
     project.cleanProperties();
     expect(project.getProperties()).to.be.empty();
-    /*
-    expect(project.getTargets()).to.contain('mac');
-    expect(project.getTargets()).to.contain('windows');
-    project.addTarget('android');
-    expect(project.getTargets()).to.contain('android');
-    project.removeTarget('mac');
-    expect(project.getTargets()).not.to.contain('mac');
-  */
+
 
   });
 });

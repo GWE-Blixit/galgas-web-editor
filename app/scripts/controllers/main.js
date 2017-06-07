@@ -8,25 +8,8 @@
  * Controller of the galgasWebEditorApp
  */
 app
-  .controller('MainCtrl', function ($scope, $route) {
-    $scope.projects = [
-      {
-        name : "Global",
-        description : "Create and manage your components ",
-        creation : (new Date()).toDateString()
-      },
-      {
-        name : "jsonlikeql",
-        description : " Here stands my project description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam asperiores, beatae blanditiis corporis culpa deserunt dicta dolore eaque est eum ipsum, labore maiores pariatur quas repellendus sed, similique vero!",
-        creation : (new Date()).toDateString()
-      },
-      {
-        name : "logo",
-        description : " Here stands my project description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam asperiores, beatae blanditiis corporis culpa deserunt dicta dolore eaque est eum ipsum, labore maiores pariatur quas repellendus sed, similique vero!",
-        creation : (new Date()).toDateString()
-
-      }
-    ];
+  .controller('MainCtrl', function ($scope, $route, dataProvider) {
+    $scope.projects = dataProvider.getProjects();
 
     $scope.newProjectRoute = $route.getRoute('newProject');
 

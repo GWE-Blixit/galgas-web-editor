@@ -12,17 +12,12 @@
  * Controller of the galgasWebEditorApp
  */
 app
-  .controller('newProjectCtrl', function ($scope, $route) {
+  .controller('newProjectCtrl', function ($scope, $route, dataProvider) {
     $scope.project = {};
 
-    $scope.targets = [
-      {
-        name : 'makefile-unix'
-      },
-      {
-        name : 'makefile-mac-ox'
-      }
-    ];
+    $scope.targets = dataProvider.getTargets();
+    $scope.properties = dataProvider.getProperties();
+    console.log($scope.properties);
 
     $scope.homeRoute = $route.getRoute('home');
 

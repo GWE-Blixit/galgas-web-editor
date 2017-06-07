@@ -34,6 +34,16 @@ app
         templateUrl: 'views/project/new.html',
         controller: 'newProjectCtrl'
       })
+      .when('/editor', {
+        name: 'editor',
+        templateUrl: 'views/editor/container.html',
+        controller: 'editorCtrl'
+      })
+      .when('/error', {
+        name: 'error',
+        templateUrl: 'views/errors/index.html',
+        controller: 'errorCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -93,9 +103,8 @@ app.run(function($rootScope, $route) {
       'home' : $route.getRoute('home'),
       'new' : $route.getRoute('newProject')
     }
-  }
+  };
 
-  console.log($rootScope.links);
 
 });
 

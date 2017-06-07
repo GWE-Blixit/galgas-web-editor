@@ -6,7 +6,7 @@
 <br>
 
 <div class="container">
-  <div ng-repeat="(key, value) in projects">
+  <div ng-repeat="(key, project) in projects">
     <div class="panel panel-primary">
     <div class="panel-body">
 
@@ -14,12 +14,12 @@
         <a class="fa fa-edit" href=""></a>
         <a class="fa fa-trash" href=""></a>
       </span>
-      <a href="" style="text-decoration: none"><h3>{{value.name}}</h3></a>
-      <i>Créé le {{value.creation | date}}</i>
+      <a href="" style="text-decoration: none"><h3>{{project.getName()}}</h3></a>
+      <i>Créé le {{project.getCreation() | date}}</i>
     </div>
 
     <div class="panel-body">
-      {{value.description}}
+      {{project.getDescription()}}
     </div>
 
   </div>

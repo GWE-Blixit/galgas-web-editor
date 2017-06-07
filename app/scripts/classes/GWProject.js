@@ -3,14 +3,16 @@
  */
 'use strict';
 
-  var GWProject = function()
+  var GWProject = function(name, description, version)
   {
 
     /**
      * properties
      */
-    var name_ = '';
-    var version_ = [];
+    var name_ = name || '';
+    var description_ = description || '';
+    var creation_ = (new Date()).toDateString();
+    var version_ = version || [0,0,0];
     var targets_ = [];
     var properties_ = {};
 
@@ -26,6 +28,24 @@
     };
     self.setName = function (name) {
       name_ = name;
+      return self;
+    };
+
+    //Description
+    self.getDescription = function () {
+      return description_;
+    };
+    self.setDescription = function (description) {
+      description_ = description;
+      return self;
+    };
+
+    //Creation
+    self.getCreation = function () {
+      return creation_;
+    };
+    self.setCreation = function (creation) {
+      creation_ = creation;
       return self;
     };
 

@@ -13,13 +13,18 @@
  */
 app
   .controller('newProjectCtrl', function ($scope, $route, dataProvider) {
-    $scope.project = {};
+    $scope.project = dataProvider.getProjects()[0];
 
     $scope.targets = dataProvider.getTargets();
     $scope.properties = dataProvider.getProperties();
-    console.log($scope.properties);
 
     $scope.homeRoute = $route.getRoute('home');
+    $scope.form = {
+      name: $scope.project.getName(),
+      version1: $scope.project.getVersion()[0],
+      version2: $scope.project.getVersion()[1],
+      version3: $scope.project.getVersion()[2]
+    }
 
     $scope.init = function(){
 

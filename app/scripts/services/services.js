@@ -8,22 +8,9 @@ app.service('dataProvider', function () {
   var self = {
     getProjects : function () {
       return [
-        {
-          name : "Global",
-          description : "Create and manage your components ",
-          creation : (new Date()).toDateString()
-        },
-        {
-          name : "jsonlikeql",
-          description : " Here stands my project description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam asperiores, beatae blanditiis corporis culpa deserunt dicta dolore eaque est eum ipsum, labore maiores pariatur quas repellendus sed, similique vero!",
-          creation : (new Date()).toDateString()
-        },
-        {
-          name : "logo",
-          description : " Here stands my project description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam asperiores, beatae blanditiis corporis culpa deserunt dicta dolore eaque est eum ipsum, labore maiores pariatur quas repellendus sed, similique vero!",
-          creation : (new Date()).toDateString()
-
-        }
+        new GWProject("My porject","Create and manage your components ",[0,5,2]),
+        new GWProject("jsonlikeql"," Here stands my project description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam asperiores, beatae blanditiis corporis culpa deserunt dicta dolore eaque est eum ipsum, labore maiores pariatur quas repellendus sed, similique vero!",[0,1,0] ),
+        new GWProject("logo","Here stands my project description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam asperiores, beatae blanditiis corporis culpa deserunt dicta dolore eaque est eum ipsum, labore maiores pariatur quas repellendus sed, similique vero!", [0,1,0] )
       ];
     },
     getTargets : function () {

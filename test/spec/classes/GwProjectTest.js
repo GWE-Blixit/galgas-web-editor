@@ -8,6 +8,16 @@ describe('Testing Class : GWProject', function () {
 
   it('should test the constructor with parameters', function () {
     var project = new GWProject("project", "This is the description", [1,2,3]);
+
+    expect(project.getName()).to.be('project');
+    expect(project.getDescription()).to.be("This is the description");
+    expect(project.getVersion()).to.contain(1);
+    expect(project.getVersion()).to.contain(2);
+    expect(project.getVersion()).to.contain(3);
+    expect(project.getVersion()).to.be.an('array');
+    expect(project.getVersion()).to.have.length(3);
+
+    expect(project.getCreation()).to.contain((new Date()).getFullYear());
   });
 
   it('should test getters and setters', function () {
@@ -15,6 +25,9 @@ describe('Testing Class : GWProject', function () {
 
     project.setName("galgas-web-editor");
     expect(project.getName()).to.be("galgas-web-editor");
+
+    project.setDescription("galgas-web-editor");
+    expect(project.getDescription()).to.be("galgas-web-editor");
 
     project.setVersion(1,2,3);
     expect(project.getVersion()).to.contain(1);

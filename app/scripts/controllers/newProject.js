@@ -19,12 +19,7 @@ app
     $scope.properties = dataProvider.getProperties();
 
     $scope.homeRoute = $route.getRoute('home');
-    $scope.form = {
-      name: $scope.project.getName(),
-      version1: $scope.project.getVersion()[0],
-      version2: $scope.project.getVersion()[1],
-      version3: $scope.project.getVersion()[2]
-    };
+    $scope.form = $scope.project;
 
     var test = new GWPComponent();
 

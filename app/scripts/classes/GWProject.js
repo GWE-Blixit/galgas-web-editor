@@ -9,105 +9,68 @@
     /**
      * properties
      */
-    var name_ = name || '';
-    var description_ = description || '';
-    var creation_ = (new Date()).toDateString();
-    var version_ = version || [0,0,0];
+    this.name = name || '';
+    this.description = description || '';
+    this.creation = (new Date()).toDateString();
+
+    this.version = version || {};
+    this.version.M = this.version.M || 0;
+    this.version.m = this.version.m || 0;
+    this.version.r = this.version.r || 0;
+
     var targets_ = [];
     var properties_ = {};
 
-    /**
-     * container
-     * @type {{}}
-     */
-    var self = {};
-
-    //Name
-    self.getName = function () {
-      return name_;
-    };
-    self.setName = function (name) {
-      name_ = name;
-      return self;
-    };
-
-    //Description
-    self.getDescription = function () {
-      return description_;
-    };
-    self.setDescription = function (description) {
-      description_ = description;
-      return self;
-    };
-
-    //Creation
-    self.getCreation = function () {
-      return creation_;
-    };
-    self.setCreation = function (creation) {
-      creation_ = creation;
-      return self;
-    };
-
-    //Version
-    self.getVersion = function () {
-      return version_;
-    };
-    self.setVersion = function (major, minor, revision) {
-      version_ = [parseInt(major), parseInt(minor), parseInt(revision)];
-      return self;
-    };
 
     //Targets
-    self.getTargets = function () {
+    this.getTargets = function () {
       return targets_;
     };
-    self.setTargets = function (targets) {
+    this.setTargets = function (targets) {
       targets_ = targets;
-      return self;
+      return this;
     };
-    self.cleanTargets = function () {
+    this.cleanTargets = function () {
       targets_ = [];
-      return self;
+      return this;
     };
-    self.addTarget = function (target) {
+    this.addTarget = function (target) {
       if (targets_.indexOf(target) < 0)
         targets_.push(target);
-      return self;
+      return this;
     };
-    self.removeTarget = function (target) {
+    this.removeTarget = function (target) {
       var index = targets_.indexOf(target);
       if (index > -1)
         targets_.splice(index, 1);
 
-      return self;
+      return this;
     };
 
     //Properties
-    self.getProperties = function () {
+    this.getProperties = function () {
       return properties_;
     };
-    self.setProperties = function (properties) {
+    this.setProperties = function (properties) {
       properties_ = properties;
-      return self;
+      return this;
     };
-    self.cleanProperties = function () {
+    this.cleanProperties = function () {
       properties_ = {};
-      return self;
+      return this;
     };
-    self.getProperty = function (key) {
+    this.getProperty = function (key) {
       return properties_[key];
     };
-    self.setProperty = function (key, value) {
+    this.setProperty = function (key, value) {
       properties_[key] = value;
-      return self;
+      return this;
     };
-    self.removeProperty = function (key) {
+    this.removeProperty = function (key) {
       if (properties_[key] != undefined)
         delete properties_[key];
-      return self;
+      return this;
     };
 
 
-    return self;
   };

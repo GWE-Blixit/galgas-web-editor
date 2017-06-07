@@ -7,34 +7,33 @@ describe('Testing Class : GWProject', function () {
 
 
   it('should test the constructor with parameters', function () {
-    var project = new GWProject("project", "This is the description", [1,2,3]);
+    var project = new GWProject("project", "This is the description", {M:1,m:2,r:3});
 
-    expect(project.getName()).to.be('project');
-    expect(project.getDescription()).to.be("This is the description");
-    expect(project.getVersion()).to.contain(1);
-    expect(project.getVersion()).to.contain(2);
-    expect(project.getVersion()).to.contain(3);
-    expect(project.getVersion()).to.be.an('array');
-    expect(project.getVersion()).to.have.length(3);
+    expect(project.name).to.be('project');
+    expect(project.description ).to.be("This is the description");
+    expect(project.version.M).to.be(1);
+    expect(project.version.m).to.be(2);
+    expect(project.version.r).to.be(3);
+    expect(Object.keys(project.version)).to.have.length(3);
 
-    expect(project.getCreation()).to.contain((new Date()).getFullYear());
+    expect(project.creation).to.contain((new Date()).getFullYear());
   });
 
   it('should test getters and setters', function () {
     var project = new GWProject();
 
-    project.setName("galgas-web-editor");
-    expect(project.getName()).to.be("galgas-web-editor");
+    project.name = "galgas-web-editor";
+    expect(project.name).to.be("galgas-web-editor");
 
-    project.setDescription("galgas-web-editor");
-    expect(project.getDescription()).to.be("galgas-web-editor");
+    project.description = "galgas-web-editor";
+    expect(project.description ).to.be("galgas-web-editor");
 
-    project.setVersion(1,2,3);
-    expect(project.getVersion()).to.contain(1);
-    expect(project.getVersion()).to.contain(2);
-    expect(project.getVersion()).to.contain(3);
-    project.setVersion(1,2,3);
-    expect(project.getVersion()).to.length(3);
+    project.version = {M:1,m:2,r:3};
+    expect(project.version.M).to.be(1);
+    expect(project.version.m).to.be(2);
+    expect(project.version.r).to.be(3);
+    project.version = {M:4,m:1,r:0};
+    expect(Object.keys(project.version)).to.length(3);
 
 
 

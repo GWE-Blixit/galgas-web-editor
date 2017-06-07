@@ -24,7 +24,9 @@ app
       version1: $scope.project.getVersion()[0],
       version2: $scope.project.getVersion()[1],
       version3: $scope.project.getVersion()[2]
-    }
+    };
+
+    var test = new GWPComponent();
 
     $scope.init = function(){
 

@@ -44,3 +44,4 @@ function GWComponentNotFoundException(componentType) {
     return this.message;
   };
 }
+GWComponentNotFoundException.constructor = new GWComponentNotFoundException;

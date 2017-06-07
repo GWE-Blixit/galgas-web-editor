@@ -11,9 +11,9 @@
  * Controller of the galgasWebEditorApp
  */
 app
-  .controller('editorCtrl', function ($scope, $route, $location, dataProvider) {
+  .controller('editorCtrl', function ($scope, $route, $location, $rootScope, dataProvider) {
 
-    $scope.defaultComponent = 'lexicon-';
+    $scope.defaultComponent = 'lexicon';
     $scope.component = null;
 
 
@@ -27,13 +27,12 @@ app
       try{
         $scope.component = container.get();
       }catch (e){
-        $location.path($route.getRoute('error')).search({error: e});
-
-        //alert('An error occured while loading the component');
-        //throw new GWComponentNotFoundException($scope.defaultComponent);
+        $location.path($route.getUndecoratedRoute('error')).search({
+          name: e.constructor.name,
+          message: e.toString(),
+          note: $rootScope.messages.criticalError()
+        });
       }
-
-      console.log($scope.component);
     }
 
   });

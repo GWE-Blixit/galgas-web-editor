@@ -1,0 +1,21 @@
+<div class="jumbotron" ng-init="init()">
+  <div class="row">
+    <h3 class="pull-left">ERROR</h3>
+  </div>
+
+  <div class="row panel alert alert-danger">
+    <div class="panel-body pull-left">
+     <span class="pull-left">
+       {{error.name}} has been raised. <br>
+     </span>
+      <p class="pull-left">
+        {{error.message}}
+      </p>
+    </div>
+  </div>
+
+  <div class="row alert-danger ">
+    <span class="pull-left">Notice : </span><br>
+    <u><em>{{error.note}}</em></u>
+  </div>
+</div>

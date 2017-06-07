@@ -53,14 +53,17 @@ app
      */
     $provide.decorator('$route', function ($delegate) {
 
-      $delegate.getRoute = function(name) {
+      $delegate.getUndecoratedRoute = function(name) {
         var result = null;
         angular.forEach($delegate.routes, function(config, route) {
           if (config.name === name) {
-            result = '#!'+route;
+            result = route;
           }
         });
         return result;
+      };
+      $delegate.getRoute = function(name) {
+        return '#!'+$delegate.getUndecoratedRoute(name);
       };
 
       return $delegate;
@@ -89,6 +92,7 @@ app.directive('ngConfirmClick', [
 ]);
 
 app.run(function($rootScope, $route) {
+
   $rootScope.views = {
     menus : {
       menu : "views/menus/menu.html"
@@ -99,11 +103,20 @@ app.run(function($rootScope, $route) {
   };
 
   $rootScope.links = {
+    utils: {
+      github: 'https://github.com/blixit/galgas-web-editor'
+    },
     menu : {
       'home' : $route.getRoute('home'),
       'new' : $route.getRoute('newProject')
     }
   };
+
+  $rootScope.messages = {
+    criticalError : function () {
+      return 'This is a critical error. Please, leave us a message on ' + $rootScope.links.utils.github;
+    }
+  }
 
 
 });

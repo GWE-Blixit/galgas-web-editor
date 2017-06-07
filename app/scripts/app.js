@@ -97,6 +97,9 @@ app.run(function($rootScope, $route) {
     menus : {
       menu : "views/menus/menu.html"
     },
+    editor : {
+      drawer : "views/editor/drawer/drawer.html"
+    },
     footers : {
       footer : "views/footers/footer.html"
     }

@@ -15,6 +15,7 @@ app
 
     $scope.defaultComponent = 'lexicon';
     $scope.component = null;
+    $rootScope.hasDrawer = true;
 
 
     $scope.projects = dataProvider.getProjects();

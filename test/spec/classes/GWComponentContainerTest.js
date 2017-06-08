@@ -27,7 +27,7 @@ describe('Testing class : GWComponentContainer', function () {
     try{
       var service = container.get();
     }catch (e){
-      expect(e instanceof GWComponentNotFoundException).to.be(true);
+      expect(e instanceof GWProjectComponentNotFoundException).to.be(true);
     }
 
     expect(service).to.be(undefined);

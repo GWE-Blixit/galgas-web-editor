@@ -25,6 +25,10 @@ app
 
 
     $scope.$on('$locationChangeStart', function(event, next, current) {
+      $rootScope.hasDrawer = false;
+      $rootScope.hasEditor = false;
+      console.log($rootScope.hasDrawer);
+      console.log($rootScope.hasEditor);
       //event.preventDefault();
       //$scope.$apply();
       //$route.reload();

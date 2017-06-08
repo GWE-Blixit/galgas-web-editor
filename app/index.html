@@ -88,8 +88,11 @@
     <script src="bower_components/bootstrap-drawer/js/drawer.js"></script>
 
     <script src="scripts/classes/GWProject.js"></script>
-    <script src="scripts/classes/GWPComponent.js"></script>
-    <script src="scripts/classes/GWComponentContainer.js"></script>
+    <div ng-show="hasEditor == true">
+      <script src="scripts/classes/GWPComponent.js"></script>
+      <script src="scripts/classes/GWComponentContainer.js"></script>
+      <script src="scripts/classes/GWEditorContainer.js"></script>
+    </div>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>

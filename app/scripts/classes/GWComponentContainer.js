@@ -27,7 +27,7 @@ function GWComponentContainer(type) {
         component = new GWPComponentProgram('main');
         break;
       default :
-        throw new GWComponentNotFoundException(type);
+        throw new GWProjectComponentNotFoundException(type);
         break;
     }
 
@@ -37,11 +37,11 @@ function GWComponentContainer(type) {
   return this;
 }
 
-function GWComponentNotFoundException(componentType) {
+function GWProjectComponentNotFoundException(componentType) {
   this.value = componentType;
-  this.message = "The component '"+componentType+"' was not found.";
+  this.message = "The project component '"+componentType+"' was not found.";
     this.toString = function(){
     return this.message;
   };
 }
-GWComponentNotFoundException.constructor = new GWComponentNotFoundException;
+GWProjectComponentNotFoundException.constructor = new GWProjectComponentNotFoundException;

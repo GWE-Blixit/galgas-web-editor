@@ -18,10 +18,9 @@ app
     $rootScope.hasDrawer = true;
     $rootScope.hasEditor = true;
     $scope.editor = null;
+    $scope.console = null;
 
-
-    $scope.projects = dataProvider.getProjects();
-    $scope.newProjectRoute = $route.getRoute('newProject');
+    $scope.compilateurResponse = '';
 
 
     $scope.init = function(){
@@ -53,8 +52,7 @@ app
       _editor.setFontSize(20);
       var jeditor = $('#editor');
       jeditor.width($(window).width());
-      jeditor.height(0.80 * $(window).height());
-      $($rootScope.ids.viewContainer).removeClass('container');
+      jeditor.height(0.70 * $(window).height());
 
       // Options
       _session.setUndoManager(new ace.UndoManager());
@@ -67,6 +65,41 @@ app
 
       $scope.editor = _editor;
 
+    };
+
+    $scope.onConsoleLoaded = function (_editor) {
+      // Editor part
+      var _session = _editor.getSession();
+      var _renderer = _editor.renderer;
+
+
+      _editor.setFontSize(18);
+      _editor.setReadOnly(true);
+      var jeditor = $('#console');
+      jeditor.width($(window).width());
+      jeditor.height(0.20 * $(window).height());
+
+      _session.insert({row: 1, column: 0}, $scope.consoleHeader($scope.component.sourceCode));
+
+      $scope.console = _editor;
+
+    };
+
+    $scope.eval = function () {
+      /*
+      var tmpConsoleOutput = "Galgas Mini Console\n" +
+        "**" + $scope.component.sourceCode;
+      */
+      $scope.compilateurResponse = $scope.consoleHeader($scope.component.sourceCode);
+
+      //var _session = $scope.console.getSession();
+      //_session.insert({row: 1, column: 0}, );
+    };
+
+    $scope.consoleHeader = function (text) {
+      var tmpConsoleOutput = "Galgas Mini Console\n" +
+        "**\n" + text;
+      return tmpConsoleOutput;
     }
 
   });

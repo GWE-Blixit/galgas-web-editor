@@ -30,21 +30,32 @@ describe('Testing Class : GWEditorContainer ', function () {
     var myconsole = container.get('GWConsole');
     expect(myconsole instanceof GWConsole).to.be(true);
 
-    expect(myconsole.getModes).to.be.a('function');  // existence
-    expect(myconsole.setMode).to.be.a('function');  // existence
+    //functions
+    expect(myconsole.getModes).to.be.a('function');
+    expect(myconsole.setMode).to.be.a('function');
+    expect(myconsole.toggleMode).to.be.a('function');
+
+    expect(myconsole.isVisible).to.be(true);
 
     //modes
     var modes = myconsole.getModes();
     expect(modes).to.only.have.keys(['output','terminal']);
+
     //default mode
     expect(myconsole.getMode()).to.be(myconsole.getModes().output);
 
-    //setMode
     expect(myconsole.setMode).withArgs(1).to.not.throwException();
     expect(myconsole.setMode).withArgs(50).to.throwException();
 
-    //getMode
-    myconsole.setMode(myconsole.getModes().terminal)
+    myconsole.setMode(myconsole.getModes().terminal);
+    expect(myconsole.getMode()).to.be(myconsole.getModes().terminal);
+
+
+    //ToggleMode
+    myconsole.setMode(myconsole.getModes().terminal);
+    myconsole.toggleMode();
+    expect(myconsole.getMode()).to.be(myconsole.getModes().output);
+    myconsole.toggleMode();
     expect(myconsole.getMode()).to.be(myconsole.getModes().terminal);
 
 

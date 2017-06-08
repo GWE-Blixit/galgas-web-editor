@@ -48,8 +48,11 @@ function GWConsole(mode){
     terminal : 2
   };
 
+  this.isVisible = true;
+  this.innerText = "Wellcome to the galgas web console !";
+  this.editorId = null; //Ace Editor
+  this.editor = null; //Ace Editor
   var mode_ = null;
-  this.sourceCode = "";
 
   (function () {
 
@@ -80,8 +83,9 @@ function GWConsole(mode){
     mode_ = mode;
   };
 
-
-
+  this.toggleMode = function () {
+    mode_ = 3 - mode_;
+  }
 
 }
 

@@ -16,6 +16,8 @@ app
     $scope.defaultComponent = 'lexicon';
     $scope.component = null;
     $rootScope.hasDrawer = true;
+    $rootScope.hasEditor = true;
+    $scope.editor = null;
 
 
     $scope.projects = dataProvider.getProjects();
@@ -34,6 +36,36 @@ app
           note: $rootScope.messages.criticalError()
         });
       }
+
+      //TEST
+      $scope.component.sourceCode = "{" +
+        " get started ! " +
+        "}";
+
+    };
+
+    $scope.onWriterLoaded = function (_editor) {
+      // Editor part
+      var _session = _editor.getSession();
+      var _renderer = _editor.renderer;
+
+
+      _editor.setFontSize(20);
+      var jeditor = $('#editor');
+      jeditor.width($(window).width());
+      jeditor.height(0.80 * $(window).height());
+      $($rootScope.ids.viewContainer).removeClass('container');
+
+      // Options
+      _session.setUndoManager(new ace.UndoManager());
+      _renderer.setOption('showLineNumbers', true);
+      _renderer.setShowGutter(true);
+
+      // Events
+      //_editor.on("changeSession", function(){ ... });
+      //_session.on("change", function(){ ... });
+
+      $scope.editor = _editor;
 
     }
 

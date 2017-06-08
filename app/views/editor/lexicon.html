@@ -1,6 +1,18 @@
 <!-- EDITOR VIEW-->
 <div ng-show="component.useEditor">
   //Editor LEXICON
+  <div id="editor"
+       ui-ace="{
+              useWrapMode : true,
+              showGutter: true,
+              theme:'monokai',
+              mode: 'markdown',
+              onLoad: onWriterLoaded
+            }"
+       ng-change=""
+       ng-model-options='{ debounce: 1000 }'
+       ng-model="component.sourceCode" >
+  </div>
 </div>
 <!-- EDITOR VIEW END-->
 

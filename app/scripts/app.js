@@ -15,7 +15,8 @@ var app = angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.ace'
   ]);
 app
   .config(function ($routeProvider, $provide) {
@@ -119,7 +120,11 @@ app.run(function($rootScope, $route) {
     criticalError : function () {
       return 'This is a critical error. Please, leave us a message on ' + $rootScope.links.utils.github;
     }
-  }
+  };
+
+  $rootScope.ids = {
+    viewContainer : 'idviewContainer'
+  };
 
 
 });

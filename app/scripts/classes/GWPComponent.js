@@ -19,7 +19,7 @@ function GWPComponent(name, useEditor, object){
   this.sourceCode = "";
 
   this.getView = function(){
-    return 'editor/'+this.type+'.html';
+    return 'editor/components/'+this.type+'.html';
   }
 
 }

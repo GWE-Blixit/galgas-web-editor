@@ -1,0 +1,35 @@
+<div class="form-control">
+  <span style="font-family: 'Ubuntu Mono', Monaco, Consolas, monospace">Code | </span>
+  <span style="font-family: 'Ubuntu Mono', Monaco, Consolas, monospace">Form</span>
+</div>
+<div id="editor"
+     ui-ace="{
+                useWrapMode : true,
+                showGutter: true,
+                theme:'monokai',
+                mode: 'markdown',
+                onLoad: onWriterLoaded
+              }"
+     ng-change="eval()"
+     ng-model-options='{ debounce: 1000 }'
+     ng-model="component.sourceCode" >
+</div>
+<div class="form-control">
+  <span style="font-family: 'Ubuntu Mono', Monaco, Consolas, monospace">Galgas Web Console</span>
+
+  <div class="pull-right">
+    <span class="btn btn-warning btn-xs"><i class="fa fa-terminal"></i> Console/Output </span>
+    <span class="btn btn-warning btn-xs" ng-click="toggleConsole()"><i class="fa fa-eye"></i> H/S </span>
+  </div>
+</div>
+<div id="console"
+     ui-ace="{
+                useWrapMode : true,
+                showGutter: true,
+                theme:'monokai',
+                mode: 'markdown',
+                onLoad: onConsoleLoaded
+              }"
+     ng-model="consoleText"
+     ng-show="showConsole" >
+</div>

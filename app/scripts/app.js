@@ -35,8 +35,8 @@ app
         templateUrl: 'views/project/new.html',
         controller: 'newProjectCtrl'
       })
-      .when('/editor', {
-        name: 'editor',
+      .when('/editor/:component_type?', {
+        name: 'editorWithCompent',
         templateUrl: 'views/editor/container.html',
         controller: 'editorCtrl'
       })
@@ -99,7 +99,8 @@ app.run(function($rootScope, $route) {
       menu : "views/menus/menu.html"
     },
     editor : {
-      drawer : "views/editor/drawer/drawer.html"
+      drawer : "views/editor/drawer/drawer.html",
+      sa_editor : "views/editor/standalone-editor.html"
     },
     footers : {
       footer : "views/footers/footer.html"

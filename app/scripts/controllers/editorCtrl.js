@@ -11,17 +11,25 @@
  * Controller of the galgasWebEditorApp
  */
 app
-  .controller('editorCtrl', function ($scope, $route, $location, $rootScope, dataProvider) {
+  .controller('editorCtrl', function ($scope, $route, $location, $rootScope, $routeParams) {
 
-    $scope.defaultComponent = 'lexicon';
+    $scope.defaultComponent = $routeParams.component_type || 'lexicon';
     $scope.component = null;
     $rootScope.hasDrawer = true;
     $rootScope.hasEditor = true;
     $scope.editor = null;
     $scope.console = null;
 
-    $scope.compilateurResponse = '';
+    $scope.consoleText = '';
+    $scope.showConsole = true;
 
+
+    $scope.$on('$locationChangeStart', function(event, next, current) {
+      //event.preventDefault();
+      //$scope.$apply();
+      //$route.reload();
+
+    });
 
     $scope.init = function(){
       var container = new GWComponentContainer($scope.defaultComponent);
@@ -38,7 +46,7 @@ app
 
       //TEST
       $scope.component.sourceCode = "{" +
-        " get started ! " +
+        " get started on "+ $scope.component.name +" ! " +
         "}";
 
     };
@@ -52,7 +60,7 @@ app
       _editor.setFontSize(20);
       var jeditor = $('#editor');
       jeditor.width($(window).width());
-      jeditor.height(0.70 * $(window).height());
+      jeditor.height(0.60 * $(window).height());
 
       // Options
       _session.setUndoManager(new ace.UndoManager());
@@ -77,7 +85,7 @@ app
       _editor.setReadOnly(true);
       var jeditor = $('#console');
       jeditor.width($(window).width());
-      jeditor.height(0.20 * $(window).height());
+      jeditor.height(0.25 * $(window).height());
 
       _session.insert({row: 1, column: 0}, $scope.consoleHeader($scope.component.sourceCode));
 
@@ -90,16 +98,28 @@ app
       var tmpConsoleOutput = "Galgas Mini Console\n" +
         "**" + $scope.component.sourceCode;
       */
-      $scope.compilateurResponse = $scope.consoleHeader($scope.component.sourceCode);
+      $scope.consoleText = $scope.consoleHeader($scope.component.sourceCode);
 
       //var _session = $scope.console.getSession();
       //_session.insert({row: 1, column: 0}, );
     };
 
     $scope.consoleHeader = function (text) {
-      var tmpConsoleOutput = "Galgas Mini Console\n" +
+      return"Galgas Mini Console\n" +
         "**\n" + text;
-      return tmpConsoleOutput;
+    };
+
+    $scope.toggleConsole = function () {
+      $scope.showConsole = !$scope.showConsole;
+      var jeditor = $('#editor');
+
+      if(! $scope.showConsole){
+        jeditor.height(0.85 * $(window).height());
+      }else{
+        jeditor.height(0.60 * $(window).height());
+        var jconsole = $('#console');
+        jconsole.height(0.25 * $(window).height());
+      }
     }
 
   });

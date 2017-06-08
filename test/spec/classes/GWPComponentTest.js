@@ -34,7 +34,7 @@ describe('Testing Class : GWPComponent', function () {
      * @return {string}
      */
     var MOCKVIEW = function (type) {
-      return 'editor/'+type+'.html';
+      return 'editor/components/'+type+'.html';
     };
 
     var component = new GWPComponent('name');

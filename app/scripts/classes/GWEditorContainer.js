@@ -1,7 +1,7 @@
 /**
  * Created by blixit on 08/06/17.
  */
-//'use strict';
+'use strict';
 
 function GWEditorContainer() {
 
@@ -34,6 +34,28 @@ function GWComponentNotFoundException(name) {
   };
 }
 GWComponentNotFoundException.constructor = new GWComponentNotFoundException;
+
+
+/****************************************************************************************************************
+ *                      GWInterface
+ ****************************************************************************************************************/
+
+var GWEditorInterfaceFactory = {
+
+  highLight : function(session, start, end, classname, lineoption) {
+    end = end || start;
+    classname = classname || "console_markers_primary";
+    lineoption = lineoption || "fullLine";
+
+    var Range = ace.require('ace/range').Range;
+    session.addMarker(new Range( start, 0, end, 1), classname, lineoption);
+
+  }
+
+
+};
+
+
 
 
 /****************************************************************************************************************
@@ -88,5 +110,89 @@ function GWConsole(mode){
   }
 
 }
-
 GWConsole.constructor = new GWConsole;
+
+
+
+var GWConsoleInterface = function (__console){
+  var console_ = __console;
+  var header_ = '$> \n';
+
+  this.init = function (editor, callback) {
+
+    console_.editorId = '#'+$(editor.container).attr('id');
+
+    if(callback)
+      callback(editor);
+
+    console_.innerText = header_;
+
+    console_.editor = editor;
+
+  };
+
+  this.toggleVisibility = function (code_editor_id) {
+    console_.isVisible = ! console_.isVisible;
+    var jeditor = $(code_editor_id);
+
+    if(! console_.isVisible){
+      jeditor.height(0.85 * $(window).height());
+    }else{
+      jeditor.height(0.60 * $(window).height());
+      var jconsole = $(console_.editorId);
+      jconsole.height(0.25 * $(window).height());
+    }
+  };
+
+  this.toggleMode = function () {
+    console_.toggleMode();
+    var _session = console_.editor.getSession();
+    var row = _session.getLength() ;
+
+    switch(console_.getMode() ){
+      case console_.getModes().output :
+        _session.insert({row: row, column:0},"Toggled to 'Output' Mode.\n");
+        GWEditorInterfaceFactory.highLight(_session,row-1, row-1);
+        break;
+      case console_.getModes().terminal :
+        _session.insert({row: row, column:0},"Toggled to 'Terminal' Mode.\n");
+        GWEditorInterfaceFactory.highLight(_session,row-1, row-1);
+        break;
+      default:
+        throw new BadModeException("");
+    }
+  };
+
+  this.scrollToBottom = function() {
+    var line = console_.editor.getSession().getLength();
+
+    console_.editor.resize(true);
+    console_.editor.scrollToLine(line, true, true, function () {});
+    console_.editor.gotoLine(line, 0, true);
+
+  };
+
+  this.appendLine = function (text) {
+    console_.innerText +=  ( text + "\n" );
+  };
+
+  /*
+   * GETTERS/SETTERS
+   */
+  this.getConsole = function () {
+    return console_;
+  };
+
+  this.setHeader = function (heaeder) {
+    header_ = heaeder;
+    return this;
+  };
+
+  this.getHeader = function () {
+    return header_;
+  };
+
+
+}
+
+GWConsoleInterface.constructor = new GWConsoleInterface;

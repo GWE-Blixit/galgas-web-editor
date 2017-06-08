@@ -58,6 +58,19 @@ describe('Testing Class : GWEditorContainer ', function () {
     myconsole.toggleMode();
     expect(myconsole.getMode()).to.be(myconsole.getModes().terminal);
 
+  });
 
-  })
+  it('should test GWConsoleInterface', function () {
+
+    var container = new GWEditorContainer();
+    var myconsole = container.get('GWConsole');
+    var cinterface = new GWConsoleInterface(myconsole);
+
+    expect(cinterface instanceof GWConsoleInterface).to.be(true);
+    expect(cinterface.getConsole() instanceof GWConsole).to.be(true);
+
+    cinterface.setHeader("text");
+    expect(cinterface.getHeader()).to.be("text");
+
+  });
 });

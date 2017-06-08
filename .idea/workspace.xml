@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cab8c074-2e19-443d-98ea-aaacf466564b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/classes/GWEditorContainer.js" afterPath="$PROJECT_DIR$/app/scripts/classes/GWEditorContainer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/editorCtrl.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/editorCtrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/editor/standalone-editor.html" afterPath="$PROJECT_DIR$/app/views/editor/standalone-editor.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/spec/classes/GWEditorContainerTest.js" afterPath="$PROJECT_DIR$/test/spec/classes/GWEditorContainerTest.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -53,14 +50,12 @@
       <file leaf-file-name="editorCtrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/scripts/controllers/editorCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="120" column="20" lean-forward="false" selection-start-line="120" selection-start-column="13" selection-end-line="120" selection-end-column="20" />
+            <state relative-caret-position="396">
+              <caret line="124" column="82" lean-forward="false" selection-start-line="124" selection-start-column="82" selection-end-line="124" selection-end-column="82" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
-                <element signature="e#2210#2836#0" expanded="false" />
-                <element signature="e#4143#4771#0" expanded="false" />
-                <element signature="e#4841#5107#0" expanded="false" />
-                <element signature="e#5147#5392#0" expanded="false" />
+                <element signature="e#1606#2233#0" expanded="false" />
+                <element signature="e#3556#3631#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -69,13 +64,20 @@
       <file leaf-file-name="GWEditorContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/classes/GWEditorContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="77" column="14" lean-forward="false" selection-start-line="77" selection-start-column="7" selection-end-line="77" selection-end-column="14" />
+            <state relative-caret-position="351">
+              <caret line="182" column="20" lean-forward="false" selection-start-line="182" selection-start-column="20" selection-end-line="182" selection-end-column="20" />
               <folding>
-                <element signature="n#!!doc;n#GWEditorContainer#0" expanded="false" />
+                <element signature="e#0#41#0" expanded="false" />
+                <element signature="n#!!block;n#GWEditorContainer#0" expanded="false" />
+                <element signature="n#!!block;n#GWComponentNotFoundException#0" expanded="false" />
+                <element signature="n#!!block;n#GWConsole#0" expanded="false" />
                 <element signature="n#!!block;n#BadModeException#0;n#!!block;n#GWConsole#0" expanded="false" />
-                <element signature="e#1840#2005#0" expanded="false" />
-                <element signature="e#2040#2068#0" expanded="false" />
+                <element signature="e#2462#2627#0" expanded="false" />
+                <element signature="e#2662#2690#0" expanded="false" />
+                <element signature="e#2879#3054#0" expanded="false" />
+                <element signature="e#3109#3437#0" expanded="false" />
+                <element signature="e#3472#4073#0" expanded="false" />
+                <element signature="e#4111#4322#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -84,8 +86,8 @@
       <file leaf-file-name="GWEditorContainerTest.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/spec/classes/GWEditorContainerTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="58" column="67" lean-forward="false" selection-start-line="58" selection-start-column="67" selection-end-line="58" selection-end-column="67" />
+            <state relative-caret-position="516">
+              <caret line="72" column="49" lean-forward="false" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="49" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -186,10 +188,10 @@
         <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/test/spec/classes/GWComponentContainerTest.js" />
         <option value="$PROJECT_DIR$/app/scripts/classes/GWComponentContainer.js" />
-        <option value="$PROJECT_DIR$/app/scripts/classes/GWEditorContainer.js" />
-        <option value="$PROJECT_DIR$/test/spec/classes/GWEditorContainerTest.js" />
         <option value="$PROJECT_DIR$/app/views/editor/standalone-editor.html" />
         <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/test/spec/classes/GWEditorContainerTest.js" />
+        <option value="$PROJECT_DIR$/app/scripts/classes/GWEditorContainer.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/editorCtrl.js" />
       </list>
     </option>
@@ -536,12 +538,12 @@
       <updated>1496767876137</updated>
       <workItem from="1496767886911" duration="33267000" />
       <workItem from="1496849617433" duration="24419000" />
-      <workItem from="1496874118927" duration="39103000" />
+      <workItem from="1496874118927" duration="45764000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96789000" />
+    <option name="totallyTimeSpent" value="103450000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -950,31 +952,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/spec/classes/GWEditorContainerTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="58" column="67" lean-forward="false" selection-start-line="58" selection-start-column="67" selection-end-line="58" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/editor/standalone-editor.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="32" column="23" lean-forward="false" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="57" column="39" lean-forward="false" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1020,29 +1002,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="57" column="39" lean-forward="false" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/spec/classes/GWEditorContainerTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="72" column="49" lean-forward="false" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/classes/GWEditorContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="77" column="14" lean-forward="false" selection-start-line="77" selection-start-column="7" selection-end-line="77" selection-end-column="14" />
+        <state relative-caret-position="351">
+          <caret line="182" column="20" lean-forward="false" selection-start-line="182" selection-start-column="20" selection-end-line="182" selection-end-column="20" />
           <folding>
-            <element signature="n#!!doc;n#GWEditorContainer#0" expanded="false" />
+            <element signature="e#0#41#0" expanded="false" />
+            <element signature="n#!!block;n#GWEditorContainer#0" expanded="false" />
+            <element signature="n#!!block;n#GWComponentNotFoundException#0" expanded="false" />
+            <element signature="n#!!block;n#GWConsole#0" expanded="false" />
             <element signature="n#!!block;n#BadModeException#0;n#!!block;n#GWConsole#0" expanded="false" />
-            <element signature="e#1840#2005#0" expanded="false" />
-            <element signature="e#2040#2068#0" expanded="false" />
+            <element signature="e#2462#2627#0" expanded="false" />
+            <element signature="e#2662#2690#0" expanded="false" />
+            <element signature="e#2879#3054#0" expanded="false" />
+            <element signature="e#3109#3437#0" expanded="false" />
+            <element signature="e#3472#4073#0" expanded="false" />
+            <element signature="e#4111#4322#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/editorCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="120" column="20" lean-forward="false" selection-start-line="120" selection-start-column="13" selection-end-line="120" selection-end-column="20" />
+        <state relative-caret-position="396">
+          <caret line="124" column="82" lean-forward="false" selection-start-line="124" selection-start-column="82" selection-end-line="124" selection-end-column="82" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
-            <element signature="e#2210#2836#0" expanded="false" />
-            <element signature="e#4143#4771#0" expanded="false" />
-            <element signature="e#4841#5107#0" expanded="false" />
-            <element signature="e#5147#5392#0" expanded="false" />
+            <element signature="e#1606#2233#0" expanded="false" />
+            <element signature="e#3556#3631#0" expanded="false" />
           </folding>
         </state>
       </provider>

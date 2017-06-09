@@ -33,6 +33,7 @@
     "jit-grunt": "^0.9.1",
     "jshint-stylish": "^1.0.0",
     "karma": "^1.7.0",
+    "karma-bower": "^1.0.1",
     "karma-chrome-launcher": "^2.1.1",
     "karma-cli": "^1.0.1",
     "karma-coffee-preprocessor": "0.2.1",

@@ -13,14 +13,15 @@ module.exports = function(config) {
 
       // frameworks to use
       // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-      frameworks: ['mocha', 'expect'],
+      frameworks: ['mocha', 'expect', 'bower'],
       plugins: [
         'karma-coverage',
         'karma-coveralls',
         'karma-mocha',
         'karma-expect',
         'karma-chrome-launcher',
-        'karma-phantomjs-launcher'
+        'karma-phantomjs-launcher',
+        'karma-bower'
       ],
 
 
@@ -37,11 +38,19 @@ module.exports = function(config) {
         'bower_components/angular-sanitize/angular-sanitize.js',
         'bower_components/angular-touch/angular-touch.js',
         'bower_components/angular-mocks/angular-mocks.js',
+        'bower_components/ace-builds/src-min-noconflict/ace.js',
+        'bower_components/angular-ui-ace/ui-ace.js',
+        'bower_components/bootstrap-drawer/js/drawer.js',
 
         'app/scripts/**/*.js',
         'test/spec/**/*.js'
       ],
 
+      bowerPackages: [
+        'jquery',
+        'angular',
+        'angular-ui-ace'
+      ],
 
       // list of files to exclude
       exclude: [

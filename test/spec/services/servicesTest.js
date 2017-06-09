@@ -4,12 +4,14 @@
 
 describe('Testing Services', function () {
 
+  var GWContainer;
   var dataProvider;
 
   beforeEach(function () {
     angular.mock.module('galgasWebEditorApp');
-    angular.mock.inject(function (_dataProvider_) {
+    angular.mock.inject(function (_dataProvider_, _GWContainer_) {
       dataProvider = _dataProvider_;
+      GWContainer = _GWContainer_;
 
     });
   });
@@ -45,5 +47,30 @@ describe('Testing Services', function () {
 
     expect(properties).to.be.a('object');
     expect(Object.keys(properties).length).to.be.above(0);
+  });
+
+
+
+  it('should test GWContainer', function () {
+
+    expect(GWContainer.get).to.be.a('function');
+
+    //Console
+    var console_ = GWContainer.get('GWConsole');
+    expect(console_ instanceof GWConsole).to.be(true);
+
+    //Console interface
+    var consoleInterface = GWContainer.get('GWConsoleInterface');
+    expect(consoleInterface instanceof GWConsoleInterface).to.be(true);
+    expect(GWContainer.get).withArgs('GWConsoleInterface',[console_]).to.not.throwException();
+
+    //Component
+    var component = GWContainer.get('GWPComponent',['lexicon']);
+    expect(component instanceof GWPComponent).to.be(true);
+
+    expect(GWContainer.get).withArgs('unknownComponent').to.throwError(function (e) {
+      expect(e.toString()).to.contain('unknownComponent');
+    })
+
   });
 });

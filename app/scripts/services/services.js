@@ -3,6 +3,60 @@
  */
 'use strict';
 
+app.service('GWContainer', function () {
+
+  return {
+    get : function (component, argsArray) {
+      argsArray = argsArray || [];
+
+      var promised = null;
+      var container = null;
+
+      switch(component){
+
+        case 'GWConsole':
+          container = new GWEditorContainer();
+          promised = container.get('GWConsole');
+
+          break;
+
+
+        case 'GWConsoleInterface':
+          container = new GWEditorContainer();
+          var console_ = null;
+          if(argsArray.length > 0){
+            console_ = argsArray[0];
+          }else{
+            console_ = container.get('GWConsole');
+          }
+
+          promised = container.get('GWConsoleInterface',[console_]);
+
+          break;
+
+
+        case 'GWPComponent':
+          container = new GWComponentContainer();
+          promised = container.get(argsArray[0]);
+
+          break;
+
+
+        default :
+          throw new function () {
+            this.message = component+" is not provided by this service.";
+            this.toString = function () {
+              return this.message;
+            }
+          };
+      }
+
+      return promised;
+    }
+  }
+
+});
+
 app.service('dataProvider', function () {
 
   return  {

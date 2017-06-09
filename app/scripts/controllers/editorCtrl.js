@@ -11,7 +11,7 @@
  * Controller of the galgasWebEditorApp
  */
 app
-  .controller('editorCtrl', function ($scope, $route, $location, $rootScope, $routeParams) {
+  .controller('editorCtrl', function ($scope, $route, $location, $rootScope, $routeParams, GWContainer) {
 
     $scope.defaultComponent = $routeParams.component_type || 'lexicon';
     $scope.component = null;
@@ -36,13 +36,11 @@ app
     });
 
     $scope.init = function(){
-      var container = new GWEditorContainer();
-      var componentContainer = new GWComponentContainer();
 
       try{
-        $scope.component = componentContainer.get($scope.defaultComponent);
-        $scope.console = container.get('GWConsole');
-        $scope.consoleInterface = container.get('GWConsoleInterface', [$scope.console]);
+        $scope.component = GWContainer.get('GWPComponent',[$scope.defaultComponent]);
+        $scope.consoleInterface = GWContainer.get('GWConsoleInterface');
+        $scope.console = $scope.consoleInterface.getConsole();
 
       }catch (e){
         $location.path($route.getUndecoratedRoute('error')).search({

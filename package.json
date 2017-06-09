@@ -54,6 +54,6 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/karma start --single-run --browsers Chrome"
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
   }
 }

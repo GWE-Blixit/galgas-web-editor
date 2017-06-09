@@ -1,3 +1,5 @@
+![Travis Build](https://travis-ci.org/blixit/galgas-web-editor.svg?branch=master)
+
 # Galgas Web Editor
 
 This repository is a personnal initiative to offer another experience with Galgas development. It contains the code of the web editor.

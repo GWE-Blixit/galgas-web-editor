@@ -65,7 +65,7 @@ var GWEditorInterfaceFactory = {
 
 function GWConsole(mode){
 
-  const DEFAULT_MODES = {
+  var DEFAULT_MODES = {
     output : 1,
     terminal : 2
   };

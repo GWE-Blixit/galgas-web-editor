@@ -2,6 +2,8 @@
 // Generated on Wed Jun 07 2017 02:52:24 GMT+0200 (CEST)
 
 module.exports = function(config) {
+  process.env.PHANTOMJS_BIN = './node_modules/.bin/phantomjs';
+
   var configuration =
     {
 
@@ -96,7 +98,7 @@ module.exports = function(config) {
 
       // start these browsers
       // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-      browsers: ['Chrome'],
+      browsers: ['Chrome','PhantomJS'],
 
 
       // Continuous Integration mode
@@ -116,7 +118,7 @@ module.exports = function(config) {
     };
 
   if (process.env.TRAVIS) {
-    configuration.browsers = ['Chrome_travis_ci'];
+    configuration.browsers = ['Chrome_travis_ci', 'PhantomJS'];
   }
 
 

@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/blixit/galgas-web-editor/badge.svg)](https://coveralls.io/github/blixit/galgas-web-editor)
 [![GitHub version](https://badge.fury.io/gh/blixit%2Fgalgas-web-editor.svg)](https://badge.fury.io/gh/blixit%2Fgalgas-web-editor)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
-
+ 
 # Galgas Web Editor
 
 This repository is a personnal initiative to offer another experience with Galgas development. It contains the code of the web editor.

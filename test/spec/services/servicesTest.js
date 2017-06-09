@@ -64,6 +64,15 @@ describe('Testing Services', function () {
     expect(consoleInterface instanceof GWConsoleInterface).to.be(true);
     expect(GWContainer.get).withArgs('GWConsoleInterface',[console_]).to.not.throwException();
 
+    //GWCodeEditor
+    var codeEditor = GWContainer.get('GWCodeEditor');
+    expect(codeEditor instanceof GWCodeEditor).to.be(true);
+
+    //GWCodeEditor interface
+    var codeEditorInterface = GWContainer.get('GWCodeEditorInterface');
+    expect(codeEditorInterface instanceof GWCodeEditorInterface).to.be(true);
+    expect(GWContainer.get).withArgs('GWCodeEditorInterface',[codeEditor]).to.not.throwException();
+
     //Component
     var component = GWContainer.get('GWPComponent',['lexicon']);
     expect(component instanceof GWPComponent).to.be(true);

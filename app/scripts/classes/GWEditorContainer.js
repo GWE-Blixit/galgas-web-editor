@@ -20,6 +20,12 @@ function GWEditorContainer() {
       case 'GWConsoleInterface' :
         return new GWConsoleInterface(argsArray[0]);
 
+      case 'GWCodeEditor' :
+        return new GWCodeEditor();
+
+      case 'GWCodeEditorInterface' :
+        return new GWCodeEditorInterface(argsArray[0]);
+
       default :
         throw new GWProjectComponentNotFoundException(webEditorComponent);
     }
@@ -203,3 +209,47 @@ var GWConsoleInterface = function (__console){
 };
 
 GWConsoleInterface.constructor = new GWConsoleInterface;
+
+
+/****************************************************************************************************************
+ *                      GWCODEEDITOR
+ ****************************************************************************************************************/
+
+function GWCodeEditor() {
+  var self = this;
+
+  this.title = 'New File';
+  this.isVisible = false;
+  this.innerText = "let code = {};";
+  this.editorId = null; //Ace Editor
+  this.editor = null; //Ace Editor
+
+
+}
+GWCodeEditor.constructor = new GWCodeEditor;
+
+
+function GWCodeEditorInterface(__codeEditor) {
+  var self = this;
+
+  this.codeEditor = __codeEditor;
+
+  this.init = function (editor, callback) {
+
+    self.codeEditor.editorId = '#'+$(editor.container).attr('id');
+
+    if(callback)
+      callback(editor);
+
+    self.codeEditor.innerText = '';
+
+    self.codeEditor.editor = editor;
+
+  };
+
+  this.getCodeEditor = function () {
+    return self.codeEditor;
+  };
+
+}
+GWCodeEditorInterface.constructor = new GWCodeEditorInterface;

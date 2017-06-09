@@ -18,6 +18,8 @@ app
     $scope.editor = null;
     $scope.console = null;
     $scope.consoleInterface = null;
+    $scope.codeEditor = null;
+    $scope.codeEditorInterface = null;
 
     $rootScope.hasDrawer = true;
     $rootScope.hasEditor = true;
@@ -42,6 +44,10 @@ app
         $scope.consoleInterface = GWContainer.get('GWConsoleInterface');
         $scope.console = $scope.consoleInterface.getConsole();
 
+        $scope.codeEditorInterface = GWContainer.get('GWCodeEditorInterface');
+        $scope.codeEditor = $scope.codeEditorInterface.getCodeEditor();
+
+
       }catch (e){
         $location.path($route.getUndecoratedRoute('error')).search({
           name: e.constructor.name,
@@ -58,28 +64,27 @@ app
     };
 
     $scope.onWriterLoaded = function (_editor) {
-      // Editor part
-      var _session = _editor.getSession();
-      var _renderer = _editor.renderer;
 
-      _editor.$blockScrolling = Infinity;
+      $scope.codeEditorInterface.init(_editor,function (_editor) {
+
+        // Editor part
+        var _session = _editor.getSession();
+        var _renderer = _editor.renderer;
+
+        _editor.$blockScrolling = Infinity;
 
 
-      _editor.setFontSize(20);
-      var jeditor = $('#editor');
-      jeditor.width($(window).width());
-      jeditor.height(0.60 * $(window).height());
+        _editor.setFontSize(20);
+        var jeditor = $('#editor');
+        jeditor.width($(window).width());
+        jeditor.height(0.60 * $(window).height());
 
-      // Options
-      _session.setUndoManager(new ace.UndoManager());
-      _renderer.setOption('showLineNumbers', true);
-      _renderer.setShowGutter(true);
+        // Options
+        _session.setUndoManager(new ace.UndoManager());
+        _renderer.setOption('showLineNumbers', true);
+        _renderer.setShowGutter(true);
 
-      // Events
-      //_editor.on("changeSession", function(){ ... });
-      //_session.on("change", function(){ ... });
-
-      $scope.editor = _editor;
+      });
 
     };
 

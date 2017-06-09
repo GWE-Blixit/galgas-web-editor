@@ -94,4 +94,28 @@ describe('Testing Class : GWEditorContainer ', function () {
     expect(cinterface.getHeader()).to.be("text");
 
   });
+
+  it('should test GWCodeEditor', function () {
+
+    var container = new GWEditorContainer();
+    expect(container.get).withArgs("GWCodeEditor").to.not.throwException();
+
+    var mycodeeditor = container.get('GWCodeEditor');
+    expect(mycodeeditor instanceof GWCodeEditor).to.be(true);
+
+    expect(mycodeeditor.isVisible).to.be(false);
+
+  });
+
+  it('should test GWCodeEditorInterface', function () {
+
+    var container = new GWEditorContainer();
+    var mycodeeditor = container.get('GWCodeEditor');
+    var einterface = new GWCodeEditorInterface(mycodeeditor);
+
+    expect(einterface instanceof GWCodeEditorInterface).to.be(true);
+
+    expect(einterface.getCodeEditor() instanceof GWCodeEditor).to.be(true);
+
+  });
 });

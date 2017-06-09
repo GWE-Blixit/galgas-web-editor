@@ -34,6 +34,25 @@ app.service('GWContainer', function () {
 
           break;
 
+        case 'GWCodeEditor':
+          container = new GWEditorContainer();
+          promised = container.get('GWCodeEditor');
+
+          break;
+
+
+        case 'GWCodeEditorInterface':
+          container = new GWEditorContainer();
+          var codeEditor = null;
+          if(argsArray.length > 0){
+            codeEditor = argsArray[0];
+          }else{
+            codeEditor = container.get('GWCodeEditor');
+          }
+
+          promised = container.get('GWCodeEditorInterface',[codeEditor]);
+
+          break;
 
         case 'GWPComponent':
           container = new GWComponentContainer();

@@ -1,7 +1,7 @@
 # Galgas Web Editor
 
 This repository is a personnal initiative to offer another experience with Galgas development. It contains the code of the web editor.
-I hope this editor will be usefull for people trying to create their own compilator.
+I hope this editor will be usefull for people trying to create their own Galgas-based compiler.
 This code is under the GNU GPL Licence.
 
 ## About Galgas
@@ -28,8 +28,10 @@ Running `grunt test` will run the unit tests with karma.
 
 ## Screenshots
 
-![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/editor.png)
+Click on image to see a video demo since the app is not hosted yet.
 
-![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/new.png)
+[![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/editor.png)](https://share.viewedit.com/RwNL9DdVQx5cApzdSPiCwu)
 
-![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/projects.png)
+[![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/new.png)](https://share.viewedit.com/RwNL9DdVQx5cApzdSPiCwu)
+
+[![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/projects.png)](https://share.viewedit.com/RwNL9DdVQx5cApzdSPiCwu)

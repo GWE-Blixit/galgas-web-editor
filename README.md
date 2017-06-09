@@ -16,6 +16,7 @@ For more about Galgas, see http://galgas.rts-software.org/
 * Bootstrap-drawer
 * Component-Font-Awesome
 * Karma
+* Galgas-Web-Server (This dep has not been published yet)
 
 
 ## Build & development

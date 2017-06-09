@@ -25,3 +25,11 @@ Run `grunt` for building and `grunt serve` for preview.
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+
+## Screenshots
+
+![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/editor.png)
+
+![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/new.png)
+
+![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/projects.png)

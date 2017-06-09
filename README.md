@@ -28,10 +28,10 @@ Running `grunt test` will run the unit tests with karma.
 
 ## Screenshots
 
-Click on image to see a video demo since the app is not hosted yet.
+Click '[here](https://share.viewedit.com/RwNL9DdVQx5cApzdSPiCwu)' to see a video demo.
 
-[![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/editor.png)](https://share.viewedit.com/RwNL9DdVQx5cApzdSPiCwu)
+![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/editor.png)
 
-[![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/new.png)](https://share.viewedit.com/RwNL9DdVQx5cApzdSPiCwu)
+![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/new.png)
 
-[![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/projects.png)](https://share.viewedit.com/RwNL9DdVQx5cApzdSPiCwu)
+![alt text](https://raw.githubusercontent.com/blixit/galgas-web-editor/master/img/projects.png)

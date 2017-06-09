@@ -16,7 +16,8 @@ module.exports = function(config) {
         'karma-coverage',
         'karma-mocha',
         'karma-expect',
-        'karma-chrome-launcher'
+        'karma-chrome-launcher',
+        'karma-phantomjs-launcher'
       ],
 
 

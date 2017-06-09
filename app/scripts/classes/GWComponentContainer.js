@@ -28,7 +28,6 @@ function GWComponentContainer(type) {
         break;
       default :
         throw new GWProjectComponentNotFoundException(type);
-        break;
     }
 
     return component;

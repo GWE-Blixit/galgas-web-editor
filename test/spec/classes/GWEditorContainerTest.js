@@ -22,6 +22,16 @@ describe('Testing Class : GWEditorContainer ', function () {
 
   });
 
+  it('should test GWComponentNotFoundException', function () {
+
+    var component = 'component';
+    var expected = "The web editor component '"+component+"' was not found.";
+    var myexception = new GWComponentNotFoundException(component);
+
+    expect(myexception instanceof GWComponentNotFoundException).to.be(true);
+    expect(myexception.toString()).to.be(expected);
+  });
+
   it('should test GWConsole', function () {
 
     var container = new GWEditorContainer();
@@ -57,6 +67,17 @@ describe('Testing Class : GWEditorContainer ', function () {
     expect(myconsole.getMode()).to.be(myconsole.getModes().output);
     myconsole.toggleMode();
     expect(myconsole.getMode()).to.be(myconsole.getModes().terminal);
+
+  });
+
+  it('should test BadModeException', function () {
+
+    var mode = 'mode';
+    var expected =  "The mode '"+mode+"'is not enable.";
+    var myexception = new BadModeException(mode);
+
+    expect(myexception instanceof BadModeException).to.be(true);
+    expect(myexception.toString()).to.be(expected);
 
   });
 

@@ -17,6 +17,7 @@ app
     $scope.component = null;
     $scope.editor = null;
     $scope.console = null;
+    $scope.consoleInterface = null;
 
     $rootScope.hasDrawer = true;
     $rootScope.hasEditor = true;

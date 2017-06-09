@@ -1,6 +1,8 @@
 /**
  * Created by blixit on 07/06/17.
  */
+'use strict';
+
 
 describe('Testing class : GWComponentContainer', function () {
 
@@ -32,4 +34,17 @@ describe('Testing class : GWComponentContainer', function () {
 
     expect(service).to.be(undefined);
   });
+
+  it('should test GWProjectComponentNotFoundException ', function () {
+
+    var component = 'component';
+    var expected = "The project component '"+component+"' was not found.";
+
+    var myexception = new GWProjectComponentNotFoundException(component);
+
+    expect(myexception instanceof GWProjectComponentNotFoundException).to.be(true);
+
+    expect(myexception.toString()).to.be(expected);
+
+  })
 });

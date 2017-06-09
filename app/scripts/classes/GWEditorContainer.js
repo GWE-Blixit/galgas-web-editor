@@ -15,11 +15,9 @@ function GWEditorContainer() {
     switch (webEditorComponent){
       case 'GWConsole' :
         return new GWConsole();
-        break;
 
       default :
         throw new GWProjectComponentNotFoundException(webEditorComponent);
-        break;
     }
   }
 
@@ -83,15 +81,6 @@ function GWConsole(mode){
 
   })();
 
-  //Exceptions
-  function BadModeException(name){
-    this.value = name;
-    this.message = "The mode '"+name+"'is not enable.";
-    this.toString = function(){
-      return this.message;
-    };
-  }
-
 
   this.getModes = function () {  return DEFAULT_MODES;  };
 
@@ -112,6 +101,14 @@ function GWConsole(mode){
 }
 GWConsole.constructor = new GWConsole;
 
+//Exceptions
+function BadModeException(name){
+  this.value = name;
+  this.message = "The mode '"+name+"'is not enable.";
+  this.toString = function(){
+    return this.message;
+  };
+}
 
 
 var GWConsoleInterface = function (__console){

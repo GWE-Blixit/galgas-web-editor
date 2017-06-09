@@ -16,6 +16,7 @@ module.exports = function(config) {
       frameworks: ['mocha', 'expect'],
       plugins: [
         'karma-coverage',
+        'karma-coveralls',
         'karma-mocha',
         'karma-expect',
         'karma-chrome-launcher',
@@ -57,7 +58,7 @@ module.exports = function(config) {
       // test results reporter to use
       // possible values: 'dots', 'progress'
       // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-      reporters: ['progress', 'coverage'],
+      reporters: ['progress', 'coverage', 'coveralls'],
       coverageReporter: {
         type : 'html',
         dir : 'coverage/'

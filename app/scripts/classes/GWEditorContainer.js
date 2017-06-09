@@ -148,29 +148,33 @@ var GWConsoleInterface = function (__console){
     console_.toggleMode();
     var _session = console_.editor.getSession();
     var row = _session.getLength() ;
+    var textToAdd = '';
 
     switch(console_.getMode() ){
       case console_.getModes().output :
-        _session.insert({row: row, column:0},"Toggled to 'Output' Mode.\n");
-        GWEditorInterfaceFactory.highLight(_session,row-1, row-1);
+        textToAdd = "Toggled to 'Output' Mode.\n";
         break;
       case console_.getModes().terminal :
-        _session.insert({row: row, column:0},"Toggled to 'Terminal' Mode.\n");
-        GWEditorInterfaceFactory.highLight(_session,row-1, row-1);
+        textToAdd = "Toggled to 'Terminal' Mode.\n";
         break;
       default:
         throw new BadModeException("");
     }
+
+    console_.innerText += textToAdd;
+    GWEditorInterfaceFactory.highLight(_session,row-1, row-1);
+    __scroller();
   };
 
-  this.scrollToBottom = function() {
+  function __scroller() {
     var line = console_.editor.getSession().getLength();
 
     console_.editor.resize(true);
     console_.editor.scrollToLine(line, true, true, function () {});
     console_.editor.gotoLine(line, 0, true);
 
-  };
+  }
+  this.scrollToBottom = __scroller;
 
   this.appendLine = function (text) {
     console_.innerText +=  ( text + "\n" );
@@ -193,6 +197,6 @@ var GWConsoleInterface = function (__console){
   };
 
 
-}
+};
 
 GWConsoleInterface.constructor = new GWConsoleInterface;

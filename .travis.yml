@@ -7,3 +7,5 @@ before_install:
   - sh -e /etc/init.d/xvfb start
   - npm install bower -g
   - bower install
+after_install:
+  - curl -X PURGE https://coveralls.io/repos/github/blixit/galgas-web-editor/badge.svg

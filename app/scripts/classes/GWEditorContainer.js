@@ -6,8 +6,9 @@
 function GWEditorContainer() {
 
 
-  this.get = function (webEditorComponent) {
+  this.get = function (webEditorComponent, argsArray) {
     webEditorComponent = webEditorComponent || {};
+    argsArray = argsArray || [];
 
     if(typeof webEditorComponent != "string")
       throw new GWProjectComponentNotFoundException(webEditorComponent.toString());
@@ -15,6 +16,9 @@ function GWEditorContainer() {
     switch (webEditorComponent){
       case 'GWConsole' :
         return new GWConsole();
+
+      case 'GWConsoleInterface' :
+        return new GWConsoleInterface(argsArray[0]);
 
       default :
         throw new GWProjectComponentNotFoundException(webEditorComponent);

@@ -36,13 +36,13 @@ app
     });
 
     $scope.init = function(){
-      var componentContainer = new GWComponentContainer($scope.defaultComponent);
       var container = new GWEditorContainer();
+      var componentContainer = new GWComponentContainer();
 
       try{
-        $scope.component = componentContainer.get();
+        $scope.component = componentContainer.get($scope.defaultComponent);
         $scope.console = container.get('GWConsole');
-        $scope.consoleInterface = new GWConsoleInterface($scope.console);
+        $scope.consoleInterface = container.get('GWConsoleInterface', [$scope.console]);
 
       }catch (e){
         $location.path($route.getUndecoratedRoute('error')).search({

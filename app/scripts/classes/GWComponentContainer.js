@@ -8,9 +8,9 @@
  * @param type
  * @constructor
  */
-function GWComponentContainer(type) {
+function GWComponentContainer() {
 
-  this.get = function () {
+  this.get = function (type) {
     var component = null;
 
     switch (type){

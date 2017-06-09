@@ -112,10 +112,11 @@ app
 
       var start = $scope.console.editor.getSession().getLength();
 
-      $scope.consoleInterface.appendLine("----------------------------------------------------");
-      $scope.consoleInterface.appendLine("At "+(new Date()).toTimeString());
-      $scope.consoleInterface.appendLine("Error Message here");
-      $scope.consoleInterface.appendLine("");
+      $scope.consoleInterface
+        .appendLine("----------------------------------------------------")
+        .appendLine("At "+(new Date()).toTimeString())
+        .appendLine("Error Message here")
+        .appendLine("");
 
 
       GWEditorInterfaceFactory.highLight($scope.console.editor.getSession(),start,start+1,"console_markers_warning");

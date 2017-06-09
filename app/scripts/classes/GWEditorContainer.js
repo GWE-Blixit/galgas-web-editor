@@ -118,6 +118,7 @@ function BadModeException(name){
 var GWConsoleInterface = function (__console){
   var console_ = __console;
   var header_ = '$> \n';
+  var self = this;
 
   this.init = function (editor, callback) {
 
@@ -179,6 +180,7 @@ var GWConsoleInterface = function (__console){
 
   this.appendLine = function (text) {
     console_.innerText +=  ( text + "\n" );
+    return self;
   };
 
   /*

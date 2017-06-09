@@ -9,16 +9,25 @@ describe('Controller: editorCtrl', function () {
   beforeEach(module('galgasWebEditorApp'));
 
   var editorCtrl,
-    scope;
+    scope,
+    templateHtml,
+    httpBackend,
+    $routeParams,
+  $location;
 
    // Initialize the controller and a mock scope
-   beforeEach(inject(function ($controller, $rootScope) {
+   beforeEach(inject(function ($controller, $rootScope, $httpBackend, _$location_, _$routeParams_) {
 
      scope = $rootScope.$new();
+     httpBackend = $httpBackend;
+     $routeParams = _$routeParams_;
+     $location = _$location_;
      editorCtrl = $controller('editorCtrl', {
        $scope: scope
        // place here mocked dependencies
      });
+
+     //templateHtml = httpBackend.expectGET('/editor').respond([]);
 
    }));
 
@@ -54,6 +63,12 @@ describe('Controller: editorCtrl', function () {
 
     expect(scope.consoleInterface instanceof GWConsoleInterface).to.be(true);
     expect(scope.consoleInterface.getConsole() instanceof GWConsole).to.be(true);
+
+  });
+
+  it('should test onWriterLoaded method', function () {
+
+
 
   });
 

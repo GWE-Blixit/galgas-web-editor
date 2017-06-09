@@ -50,8 +50,8 @@ app
         });
       }
 
-    //TEST
-    $scope.component.sourceCode = "{" +
+      //TEST
+      $scope.component.sourceCode = "{" +
         " get started on "+ $scope.component.name +" ! " +
         "}";
 

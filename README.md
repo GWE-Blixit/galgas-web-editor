@@ -1,4 +1,5 @@
 ![Travis Build](https://travis-ci.org/blixit/galgas-web-editor.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/blixit/galgas-web-editor/badge.svg)](https://coveralls.io/github/blixit/galgas-web-editor)
 
 # Galgas Web Editor
 

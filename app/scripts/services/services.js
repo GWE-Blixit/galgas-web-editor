@@ -5,7 +5,7 @@
 
 app.service('dataProvider', function () {
 
-  var self = {
+  return  {
     getProjects : function () {
       return [
         new GWProject("My porject","Create and manage your components ",[0,5,2]),
@@ -25,7 +25,5 @@ app.service('dataProvider', function () {
       }
     }
   };
-
-  return self;
 
 });

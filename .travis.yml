@@ -7,3 +7,5 @@ before_install:
   - sh -e /etc/init.d/xvfb start
   - npm install bower -g
   - bower install
+after_install:
+  - curl -X PURGE https://camo.githubusercontent.com/5c0a0ffdcf2572cc46dcc965a9c1a2ee193a2d01/68747470733a2f2f636f766572616c6c732e696f2f7265706f732f6769746875622f626c697869742f67616c6761732d7765622d656469746f722f62616467652e737667

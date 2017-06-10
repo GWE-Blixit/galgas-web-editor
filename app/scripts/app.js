@@ -129,7 +129,7 @@ app.run(function($rootScope, $route) {
 
   $rootScope.api = {
     url : function () {
-      return 'http://localhost:16791/';
+      return 'http://localhost:16791/gwa/';
     },
     token : function () {
       return "emptyToken";

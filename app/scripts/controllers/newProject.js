@@ -39,12 +39,13 @@ app
       if ($scope.evalForm()){
         $scope.project_error_submit_text = "";
 
-        var str = JSON.stringify($scope.project);
+        var str = JSON.stringify($scope.project.format());
         var json = JSON.parse(str);
 
-        $http.post($rootScope.api.url(),json)
+        $http.post($rootScope.api.url()+'newproject',{query:json})
           .then(function successCallback(response) {
-            console.log("submitted");
+            console.log("response");
+            console.log(response);
           }, function errorCallback(response) {
             $scope.project_error_submit_text = "An error occured on the network, please retry or check galgas-server-status.";
           });

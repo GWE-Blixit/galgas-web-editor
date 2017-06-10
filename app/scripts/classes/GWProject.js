@@ -6,6 +6,7 @@
   var GWProject = function(name, description, version)
   {
 
+    var self = this;
     /**
      * properties
      */
@@ -71,6 +72,12 @@
         delete properties_[key];
       return this;
     };
+
+    this.format = function () {
+      self.targets = self.getTargets();
+      self.properties = self.getProperties();
+      return self;
+    }
 
 
   };

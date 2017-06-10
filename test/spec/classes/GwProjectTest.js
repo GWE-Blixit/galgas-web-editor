@@ -16,7 +16,7 @@ describe('Testing Class : GWProject', function () {
     expect(project.version.r).to.be(3);
     expect(Object.keys(project.version)).to.have.length(3);
 
-    expect(project.creation).to.contain((new Date()).getFullYear());
+    expect((new Date(project.creation)).toString()).to.contain((new Date()).getFullYear());
   });
 
   it('should test getters and setters', function () {

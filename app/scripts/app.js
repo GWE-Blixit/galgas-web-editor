@@ -127,6 +127,14 @@ app.run(function($rootScope, $route) {
     viewContainer : 'idviewContainer'
   };
 
+  $rootScope.api = {
+    url : function () {
+      return 'http://localhost:16791/';
+    },
+    token : function () {
+      return "emptyToken";
+    }
+  }
 
 });
 

@@ -1,26 +1,34 @@
-<div class="container">
+<div class="container" ng-init="init()">
   <h1>New Galgas Project</h1>
 
   <form  action="">
     <fieldset class="form-group">
       <h3>Informations</h3>
       <label>Name :</label>
-      <input type="text" class="form-control" ng-model="form.name">
+      <div>
+        <input type="text" class="form-control" placeholder="Project name" ng-model="project.name" ng-change="evalName()">
+        <span id="project_error_name" class="alert-danger" ng-show="project_error_name_text.length>0">{{project_error_name_text}}</span>
+      </div>
+
       <label>Description :</label>
-      <textarea class="form-control" ng-model="form.description"></textarea>
+      <div>
+        <textarea class="form-control" ng-model="project.description" ng-change="evalDescription()"></textarea>
+        <span id="project_error_description" class="alert-danger" ng-show="project_error_description_text.length>0">{{project_error_description_text}}</span>
+      </div>
 
       <br>
       <label>Version :</label>
       <div class="row" >
         <div class="col-xs-2" >
-          <input type="number" class="form-control " ng-model="form.version.M">
+          <input type="number" class="form-control " ng-model="project.version.M" ng-change="evalVersion()">
         </div>
         <div class="col-xs-2" >
-          <input type="number" class="form-control " ng-model="form.version.m">
+          <input type="number" class="form-control " ng-model="project.version.m" ng-change="evalVersion()">
         </div>
         <div class="col-xs-2" >
-          <input type="number" class="form-control " ng-model="form.version.r">
+          <input type="number" class="form-control " ng-model="project.version.r" ng-change="evalVersion()">
         </div>
+        <span id="project_error_version" class="alert-danger" ng-show="project_error_version_text.length>0">{{project_error_version_text}}</span>
       </div>
 
     </fieldset>
@@ -29,16 +37,22 @@
       <h3>Targets</h3>
       <div>
         <label>Add a target : </label><br>
-        <select class="form-control inline" style="width: 80%; display: inline; margin-right: 10px" >
-          <option ng-repeat="target in targets" value="{{target.name}}"> {{target.name}} </option>
+        <select class="form-control inline" style="width: 80%; display: inline; margin-right: 10px"
+                ng-model="selectedTarget"
+                ng-init="selectedTarget"
+                ng-options="target for target in targets"
+        >
         </select>
-        <button class="btn btn-primary inline"><i class="fa fa-plus"></i></button>
+        <button class="btn btn-primary inline" ng-click="addTarget()"><i class="fa fa-plus"></i></button>
+      </div>
+      <div>
+        <span id="project_error_targets" class="alert-danger" ng-show="project_error_targets_text.length>0">{{project_error_targets_text}}</span>
       </div>
       <br>
-      <div class="" ng-show="targets.length>0">
+      <div class="" ng-show="project.getTargets().length>0">
         <label>Selected targets : </label>
-        <ul class="" ng-repeat="target in targets">
-          <li>{{target}} <i class="fa fa-close pull-right" ng-click="" ></i></li>
+        <ul class="" ng-repeat="target in project.getTargets()">
+          <li>{{target}} <i class="fa fa-close pull-right" ng-click="deleteTarget(target)" ></i></li>
         </ul>
       </div>
     </fieldset>
@@ -47,22 +61,30 @@
       <h3>Properties</h3>
       <div>
         <label>Add a property : </label><br>
-        <select class="form-control inline" style="width: 80%; display: inline; margin-right: 10px" >
-          <option ng-repeat="property in properties" value="{{property.name}}"> {{property.name}} </option>
-        </select>
-        <button class="btn btn-primary inline"><i class="fa fa-plus"></i></button>
+        <div class="row" >
+          <div class="col-xs-3" >
+            <input class="form-control" placeholder="name" ng-model="typedProperty.name">
+          </div>
+          <div class="col-xs-3" >
+            <input class="form-control" placeholder="value" ng-model="typedProperty.value">
+          </div>
+        <button class="btn btn-primary inline" ng-click="addProperty()"><i class="fa fa-plus"></i></button>
+      </div>
       </div>
       <br>
-      <div class="" ng-show="!properties.empty()">
+      <div class="" ng-show="!isEmpty(project.getProperties())">
         <label>Added properties : </label>
-        <ul class="" ng-repeat="(key,value) in properties">
-          <li>{{key}} : {{value}}</li>
+        <ul class="" ng-repeat="(key,value) in project.getProperties()">
+          <li>{{key}} : {{value}} <i class="fa fa-close pull-right" ng-click="deleteProperty(key)" ></i> </li>
         </ul>
       </div>
     </fieldset>
 
-    <input class="btn btn-primary " type="button" value="Submit" />
+    <input class="btn btn-primary " type="button" value="Submit" ng-click="submit()" />
     <a class="btn btn-danger " href="{{homeRoute}}" ng-confirm-click="" ng-confirm-click-message="By leaving this page, you accept to lose your data. Do you confirm ? ">Cancel</a>
+    <div>
+      <span id="project_error_submit" class="alert-danger" ng-show="project_error_submit_text.length>0">{{project_error_submit_text}}</span>
+    </div>
 
   </form>
 

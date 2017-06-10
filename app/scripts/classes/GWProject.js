@@ -11,7 +11,7 @@
      */
     this.name = name || '';
     this.description = description || '';
-    this.creation = (new Date()).toDateString();
+    this.creation = (new Date()).getTime();
 
     this.version = version || {};
     this.version.M = this.version.M || 0;

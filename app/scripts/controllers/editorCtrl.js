@@ -11,10 +11,10 @@
  * Controller of the galgasWebEditorApp
  */
 app
-  .controller('editorCtrl', function ($scope, $route, $location, $rootScope, $routeParams, $http, GWContainer) {
+  .controller('editorCtrl', function ($scope, $route, $location, $rootScope, $routeParams, $http, GWContainer, dataProvider) {
 
-    $scope.defaultComponent = $routeParams.component_type || 'lexicon';
     $scope.project_id = $routeParams.id;
+    $scope.defaultComponent = $routeParams.component_type || 'lexicon';
 
     $scope.component = null;
     $scope.editor = null;
@@ -25,7 +25,6 @@ app
 
     $rootScope.hasDrawer = true;
     $rootScope.hasEditor = true;
-
 
 
     $scope.$on('$locationChangeStart', function(event, next, current) {
@@ -42,6 +41,15 @@ app
     $scope.init = function(){
 
       try{
+
+        $http.get($rootScope.api.routes.projects+'/'+$scope.project_id)
+          .then(function (response) {
+              $scope.project = (new GWProject()).fromArray(response.data.project);
+            },
+            function (response) {
+              console.log(response)
+            }) ;
+
         $scope.component = GWContainer.get('GWPComponent',[$scope.defaultComponent]);
         $scope.consoleInterface = GWContainer.get('GWConsoleInterface');
         $scope.console = $scope.consoleInterface.getConsole();
@@ -50,14 +58,25 @@ app
         $scope.codeEditor = $scope.codeEditorInterface.getCodeEditor();
 
 
-        $http.get($rootScope.api.routes.projects+'/'+$scope.project_id)
-          .then(function (response) {
-              $scope.project = response.data.project;
-              console.log($scope.project)
-            },
-            function (response) {
+        $rootScope.testComponents = dataProvider.getComponents();
+        $rootScope.drawerData = {
+          lex: [], syn: [], gra: [], prg: []
+        };
 
-            }) ;
+        $scope.testComponents.forEach(function (item) {
+          if(item instanceof GWPComponentLexicon){
+            $rootScope.drawerData.lex.push(item);
+          }
+          else if(item instanceof GWPComponentSyntax){
+            $rootScope.drawerData.syn.push(item);
+          }
+          else if(item instanceof GWPComponentGrammar){
+            $rootScope.drawerData.gra.push(item);
+          }
+          else if(item instanceof GWPComponentProgram){
+            $rootScope.drawerData.prg.push(item);
+          }
+        });
 
       }catch (e){
         $location.path($route.getUndecoratedRoute('error')).search({

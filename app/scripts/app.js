@@ -35,7 +35,7 @@ app
         templateUrl: 'views/project/new.html',
         controller: 'newProjectCtrl'
       })
-      .when('/editor/:component_type?/:id', {
+      .when('/editor/:id/:component_type?', {
         name: 'editorWithCompent',
         templateUrl: 'views/editor/container.html',
         controller: 'editorCtrl'

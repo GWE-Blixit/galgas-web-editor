@@ -1,9 +1,9 @@
-<div class="has-drawer" style="">
+<div class="has-drawer" ng-controller="editorCtrl" ng-init="">
   <div id="drawerExample2" class="drawer drawer-inside drawer-inverse dw-xs-5 fold  " aria-labelledby="drawerExample2">
 
     <div class="drawer-contents">
       <div class="drawer-heading">
-        <h2 class="drawer-title">Galgas Web Editor
+        <h2 class="drawer-title">Galgas Web Editor ({{project.name}})
           <a target="_self" data-toggle="drawer" href="#drawerExample2" aria-foldedopen="false" aria-controls="drawerExample2" ><i class="fa fa-close pull-right"></i></a>
 
         </h2>
@@ -11,30 +11,26 @@
       <ul class="drawer-nav">
         <li role="presentation" class="active">
           <a href="#" class="fa-2x"><i class="fa fa-language "></i> Mes lexiques</a>
-          <ul>
-            <li>ok</li>
-            <li>ok</li>
+          <ul ng-repeat="(key, lexicon) in drawerData.lex">
+            <li >{{lexicon.type}}</li>
           </ul>
         </li>
         <li role="presentation">
           <a href="#" class="fa-2x"><i class="fa fa-chain-broken "></i> Mes syntaxes</a>
-          <ul>
-            <li>ok</li>
-            <li>ok</li>
+          <ul ng-repeat="(key, syntax) in drawerData.syn">
+            <li >{{syntax.type}}</li>
           </ul>
         </li>
         <li role="presentation">
           <a href="#" class="fa-2x"><i class="fa fa-commenting "></i> Mes grammaires</a>
-          <ul>
-            <li>ok</li>
-            <li>ok</li>
+          <ul ng-repeat="(key, grammar) in drawerData.gra">
+            <li >{{grammar.type}}</li>
           </ul>
         </li>
         <li role="presentation">
           <a href="#" class="fa-2x"><i class="fa fa-tasks "></i> Mes programmes</a>
-          <ul>
-            <li>ok</li>
-            <li>ok</li>
+          <ul ng-repeat="(key, program) in drawerData.prg">
+            <li >{{program.type}}</li>
           </ul>
         </li>
       </ul>

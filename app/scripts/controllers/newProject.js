@@ -55,7 +55,7 @@ app
           .then(function successCallback(response) {
             if(response.data.created != undefined) {
               $scope.project.id = response.data.created;
-              $location.path('/editor/lexicon/'+$scope.project.id) ;
+              $location.path('/editor/'+$scope.project.id) ;
             }
           }, function errorCallback(response) {
             $scope.project_error_submit_text = "An error occured on the network, please retry or check galgas-server-status.";

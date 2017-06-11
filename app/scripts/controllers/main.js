@@ -8,8 +8,7 @@
  * Controller of the galgasWebEditorApp
  */
 app
-  .controller('MainCtrl', function ($scope, $route, $http, $rootScope, dataProvider) {
-    $scope.projects = dataProvider.getProjects();
+  .controller('MainCtrl', function ($scope, $route, $http, $rootScope) {
 
     $scope.newProjectRoute = $route.getRoute('newProject');
 

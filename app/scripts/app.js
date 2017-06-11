@@ -35,7 +35,7 @@ app
         templateUrl: 'views/project/new.html',
         controller: 'newProjectCtrl'
       })
-      .when('/editor/:id/:component_type?', {
+      .when('/editor/:id/:component_type?/:component_id?', {
         name: 'editorWithCompent',
         templateUrl: 'views/editor/container.html',
         controller: 'editorCtrl'
@@ -132,7 +132,8 @@ app.run(function($rootScope, $route) {
     url : API,
     routes : {
       project_new : (API+'project'),
-      projects : (API+'project')
+      projects : (API+'project'),
+      compile : (API+'compile')
     },
     token : function () {
       return "emptyToken";

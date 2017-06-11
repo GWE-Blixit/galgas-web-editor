@@ -94,4 +94,5 @@ GWProject.prototype.fromArray = function(array){
   this.targets = array.targets;
   this.properties = array.properties;
   this.creation = array.creation;
+  return this;
 };

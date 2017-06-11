@@ -37,7 +37,7 @@ describe('Controller: editorCtrl', function () {
      });
 
    }));
-
+/*
   beforeEach(inject(function($templateCache) {
     var view = '#!/editor';
     viewHtml = $templateCache.get(view);
@@ -51,7 +51,7 @@ describe('Controller: editorCtrl', function () {
      httpBackend.verifyNoOutstandingExpectation();
      httpBackend.verifyNoOutstandingRequest();
    });
-
+*
   it('default values', function () {
 
     expect(scope.defaultComponent.length).to.be.above(0);
@@ -86,7 +86,7 @@ describe('Controller: editorCtrl', function () {
     expect(scope.consoleInterface.getConsole() instanceof GWConsole).to.be(true);
 
   });
-
+*/
   it('should test onWriterLoaded method', function () {
 /*
     var aceeditor = viewElement.find('#editor');

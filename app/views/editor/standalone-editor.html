@@ -1,7 +1,12 @@
 <div class="form-control">
   <span style="font-family: 'Ubuntu Mono', Monaco, Consolas, monospace">Code | </span>
   <span style="font-family: 'Ubuntu Mono', Monaco, Consolas, monospace">Form</span>
+  <div class="pull-right">
+    <span class="btn btn-success btn-xs " id="" ng-click="eval()"> <i class="fa fa-play"></i> Compiler </span>
+    <span class="btn btn-primary btn-xs "  ng-click="toggleAutoSave()"> <i class="fa fa-circle-o-notch"></i> Auto-Save </span>
+  </div>
 </div>
+
 <div id="editor"
      ui-ace="{
                 useWrapMode : true,
@@ -10,7 +15,7 @@
                 mode: 'markdown',
                 onLoad: onWriterLoaded
               }"
-     ng-change="eval()"
+     ng-change="editorOnChange()"
      ng-model-options='{ debounce: 1000 }'
      ng-model="component.sourceCode" >
 </div>

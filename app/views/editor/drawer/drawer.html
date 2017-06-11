@@ -5,32 +5,31 @@
       <div class="drawer-heading">
         <h2 class="drawer-title">Galgas Web Editor ({{project.name}})
           <a target="_self" data-toggle="drawer" href="#drawerExample2" aria-foldedopen="false" aria-controls="drawerExample2" ><i class="fa fa-close pull-right"></i></a>
-
         </h2>
       </div>
       <ul class="drawer-nav">
         <li role="presentation" class="active">
           <a href="#" class="fa-2x"><i class="fa fa-language "></i> Mes lexiques</a>
           <ul ng-repeat="(key, lexicon) in drawerData.lex">
-            <li >{{lexicon.type}}</li>
+            <a href="/#!/editor/{{project.id}}/{{lexicon.type}}{{lexicon.id ? '/'+lexicon.id : ''}}"><li class="fa-2x">{{lexicon.name}}</li></a>
           </ul>
         </li>
         <li role="presentation">
           <a href="#" class="fa-2x"><i class="fa fa-chain-broken "></i> Mes syntaxes</a>
           <ul ng-repeat="(key, syntax) in drawerData.syn">
-            <li >{{syntax.type}}</li>
+            <li >{{syntax.name}}</li>
           </ul>
         </li>
         <li role="presentation">
           <a href="#" class="fa-2x"><i class="fa fa-commenting "></i> Mes grammaires</a>
           <ul ng-repeat="(key, grammar) in drawerData.gra">
-            <li >{{grammar.type}}</li>
+            <li >{{grammar.name}}</li>
           </ul>
         </li>
         <li role="presentation">
           <a href="#" class="fa-2x"><i class="fa fa-tasks "></i> Mes programmes</a>
           <ul ng-repeat="(key, program) in drawerData.prg">
-            <li >{{program.type}}</li>
+            <li >{{program.name}}</li>
           </ul>
         </li>
       </ul>

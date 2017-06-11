@@ -96,6 +96,7 @@ app.service('dataProvider', function () {
     getComponents : function () {
       return [
         new GWPComponentLexicon('mylexicon',true),
+        new GWPComponentLexicon('mylexicon2',true),
         new GWPComponentSyntax('mysyntax',true),
         new GWPComponentGrammar('mygrammar',true),
         new GWPComponentProgram('myprog',true)

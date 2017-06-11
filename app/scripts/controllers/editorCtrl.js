@@ -25,6 +25,7 @@ app
 
     $rootScope.hasDrawer = true;
     $rootScope.hasEditor = true;
+    $scope.autoSave = true;
 
 
     $scope.$on('$locationChangeStart', function(event, next, current) {
@@ -41,42 +42,67 @@ app
     $scope.init = function(){
 
       try{
-
-        $http.get($rootScope.api.routes.projects+'/'+$scope.project_id)
-          .then(function (response) {
-              $scope.project = (new GWProject()).fromArray(response.data.project);
-            },
-            function (response) {
-              console.log(response)
-            }) ;
-
-        $scope.component = GWContainer.get('GWPComponent',[$scope.defaultComponent]);
         $scope.consoleInterface = GWContainer.get('GWConsoleInterface');
         $scope.console = $scope.consoleInterface.getConsole();
 
         $scope.codeEditorInterface = GWContainer.get('GWCodeEditorInterface');
         $scope.codeEditor = $scope.codeEditorInterface.getCodeEditor();
 
+        //Will be overriden after loading
+        $scope.component = GWContainer.get('GWPComponent',[$scope.defaultComponent]);
 
-        $rootScope.testComponents = dataProvider.getComponents();
-        $rootScope.drawerData = {
-          lex: [], syn: [], gra: [], prg: []
-        };
+        $http.get($rootScope.api.routes.projects+'/'+$scope.project_id)
+          .then(function (response) {
+              $scope.project = (new GWProject()).fromArray(response.data.project);
 
-        $scope.testComponents.forEach(function (item) {
-          if(item instanceof GWPComponentLexicon){
-            $rootScope.drawerData.lex.push(item);
-          }
-          else if(item instanceof GWPComponentSyntax){
-            $rootScope.drawerData.syn.push(item);
-          }
-          else if(item instanceof GWPComponentGrammar){
-            $rootScope.drawerData.gra.push(item);
-          }
-          else if(item instanceof GWPComponentProgram){
-            $rootScope.drawerData.prg.push(item);
-          }
-        });
+              $scope.project.components = dataProvider.getComponents();
+              $rootScope.drawerData = {
+                lex: [], syn: [], gra: [], prg: []
+              };
+
+              var current_component = null;
+
+              $scope.project.components.forEach(function (item) {
+
+                if(typeof item == 'undefined')
+                  return;
+
+                if(item.id != null && item.id == $routeParams.component_id)
+                  current_component = item;
+
+                if(item instanceof GWPComponentLexicon){
+                  $rootScope.drawerData.lex.push(item);
+                }
+                else if(item instanceof GWPComponentSyntax){
+                  $rootScope.drawerData.syn.push(item);
+                }
+                else if(item instanceof GWPComponentGrammar){
+                  $rootScope.drawerData.gra.push(item);
+                }
+                else if(item instanceof GWPComponentProgram){
+                  $rootScope.drawerData.prg.push(item);
+                }
+              });
+
+              if($routeParams.component_id != null && current_component == null){
+                $location.path($route.getUndecoratedRoute('error')).search({
+                  name: 'Exception',
+                  message: "The queried component was not found",
+                  note: null
+                });
+              }else{
+                current_component = GWContainer.get('GWPComponent',[$scope.defaultComponent]);
+              }
+              //overriding promised
+              $scope.component = current_component;
+
+            },
+            function (response) {
+              console.log(response)
+            }) ;
+
+
+
 
       }catch (e){
         $location.path($route.getUndecoratedRoute('error')).search({
@@ -86,10 +112,6 @@ app
         });
       }
 
-      //TEST
-      $scope.component.sourceCode = "{" +
-        " get started on "+ $scope.component.name +" ! " +
-        "}";
 
     };
 
@@ -143,20 +165,43 @@ app
 
     };
 
+    $scope.editorOnChange = function () {
+      if($scope.autoSave){
+        $scope.eval();
+      }
+    };
+
     $scope.eval = function () {
 
-      var start = $scope.console.editor.getSession().getLength();
+      $http.post($rootScope.api.routes.compile,{query:$scope.component.sourceCode})
+        .then(function (response) {
 
-      $scope.consoleInterface
-        .appendLine("----------------------------------------------------")
-        .appendLine("At "+(new Date()).toTimeString())
-        .appendLine("Error Message here")
-        .appendLine("");
+          var start = $scope.console.editor.getSession().getLength();
+
+          $scope.consoleInterface
+            .appendLine("----------------------------------------------------")
+            .appendLine("At "+(new Date()).toTimeString()) ;
+
+          var messages = '';
+          response.data.errors.forEach(function (item) {
+            messages += item.MESSAGE;
+          });
+
+          $scope.consoleInterface
+            .appendLine(messages)
+            .appendLine("");
+
+          if(messages.length > 0 )
+            GWEditorInterfaceFactory.highLight($scope.console.editor.getSession(),start,start,"console_markers_warning");
+          else
+            GWEditorInterfaceFactory.highLight($scope.console.editor.getSession(),start,start,"console_markers_success");
+
+          $scope.consoleInterface.scrollToBottom();
+
+        });
 
 
-      GWEditorInterfaceFactory.highLight($scope.console.editor.getSession(),start,start+1,"console_markers_warning");
 
-      $scope.consoleInterface.scrollToBottom();
     };
 
     $scope.consoleHeader = function (text) {
@@ -170,6 +215,9 @@ app
 
     $scope.toggleConsoleMode = function () {
       $scope.consoleInterface.toggleMode();
+    };
+    $scope.toggleAutoSave = function () {
+      $scope.autoSave = !$scope.autoSave;
     };
 
   });

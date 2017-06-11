@@ -18,22 +18,21 @@ describe('Testing Services', function () {
 
   it('should test dataProvider service', function () {
 
-    expect(dataProvider.getProjects).to.be.a('function');
+    expect(dataProvider.getComponents).to.be.a('function');
     expect(dataProvider.getTargets).to.be.a('function');
-    expect(dataProvider.getProperties).to.be.a('function');
 
   });
 
-  it('should return project instances', function () {
-    var projects = dataProvider.getProjects();
+  it('should return components instances', function () {
+    var projects = dataProvider.getComponents();
 
     expect(projects).to.be.a('array');
     projects.forEach(function (item) {
-      expect(item instanceof GWProject).to.be(true);
+      expect(item instanceof GWPComponent).to.be(true);
     })
   });
 
-  it('should return string', function () {
+  it('should return targets', function () {
     var targets = dataProvider.getTargets();
 
     expect(targets).to.be.a('array');
@@ -42,12 +41,6 @@ describe('Testing Services', function () {
     })
   });
 
-  it('should return objects', function () {
-    var properties = dataProvider.getProperties();
-
-    expect(properties).to.be.a('object');
-    expect(Object.keys(properties).length).to.be.above(0);
-  });
 
 
 

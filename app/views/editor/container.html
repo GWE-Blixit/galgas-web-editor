@@ -1,5 +1,8 @@
 <div class="col-lg-12" ng-controller="editorCtrl" ng-init="init()">
 
+  <div ng-if="hasDrawer">
+    <div ng-include="views.editor.drawer" ></div>
+  </div>
   <div class="row" ng-include="'views/'+component.getView()">
 
   </div>

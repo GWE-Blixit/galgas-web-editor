@@ -21,6 +21,7 @@ module.exports = function(config) {
         'karma-expect',
         'karma-chrome-launcher',
         'karma-phantomjs-launcher',
+        'karma-firefox-launcher',
         'karma-bower'
       ],
 
@@ -109,7 +110,7 @@ module.exports = function(config) {
 
       // start these browsers
       // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-      browsers: ['Chrome','PhantomJS'],
+      browsers: ['Chrome','PhantomJS','Firefox'],
 
 
       // Continuous Integration mode
@@ -124,12 +125,19 @@ module.exports = function(config) {
         Chrome_travis_ci: {
           base: 'Chrome',
           flags: ['--no-sandbox']
+        },
+        FirefoxAutoAllowGUM: {
+          base: 'Firefox',
+          prefs: {
+            'media.navigator.permission.disabled': true
+          }
+
         }
       }
     };
 
   if (process.env.TRAVIS) {
-    configuration.browsers = ['Chrome_travis_ci', 'PhantomJS'];
+    configuration.browsers = ['Chrome_travis_ci', 'PhantomJS','FirefoxAutoAllowGUM'];
   }
 
 

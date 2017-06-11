@@ -12,13 +12,22 @@
  * Controller of the galgasWebEditorApp
  */
 app
-  .controller('newProjectCtrl', function ($scope, $route, $http, $rootScope, dataProvider) {
+  .controller('newProjectCtrl', function ($scope, $route, $http, $rootScope, $location, dataProvider) {
     $scope.project = dataProvider.getProjects()[0];
 
     $scope.targets = dataProvider.getTargets();
     $scope.properties = dataProvider.getProperties();
 
     $scope.homeRoute = $route.getRoute('home');
+
+
+    $scope.$on('$locationChangeStart', function(event, next, current) {
+      //event.preventDefault();
+      //console.log(next);
+      //$scope.$apply();
+      //$route.reload();
+
+    });
 
     $scope.init = function(){
       $scope.project = new GWProject();
@@ -42,10 +51,12 @@ app
         var str = JSON.stringify($scope.project.format());
         var json = JSON.parse(str);
 
-        $http.post($rootScope.api.url()+'newproject',{query:json})
+        $http.post($rootScope.api.routes.project_new,json)
           .then(function successCallback(response) {
-            console.log("response");
-            console.log(response);
+            if(response.data.created != undefined) {
+              $scope.project.id = response.data.created;
+              $location.path('/editor/lexicon/'+$scope.project.id) ;
+            }
           }, function errorCallback(response) {
             $scope.project_error_submit_text = "An error occured on the network, please retry or check galgas-server-status.";
           });

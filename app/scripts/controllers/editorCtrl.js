@@ -11,9 +11,11 @@
  * Controller of the galgasWebEditorApp
  */
 app
-  .controller('editorCtrl', function ($scope, $route, $location, $rootScope, $routeParams, GWContainer) {
+  .controller('editorCtrl', function ($scope, $route, $location, $rootScope, $routeParams, $http, GWContainer) {
 
     $scope.defaultComponent = $routeParams.component_type || 'lexicon';
+    $scope.project_id = $routeParams.id;
+
     $scope.component = null;
     $scope.editor = null;
     $scope.console = null;
@@ -29,8 +31,8 @@ app
     $scope.$on('$locationChangeStart', function(event, next, current) {
       $rootScope.hasDrawer = false;
       $rootScope.hasEditor = false;
-      console.log($rootScope.hasDrawer);
-      console.log($rootScope.hasEditor);
+      //console.log($rootScope.hasDrawer);
+      //console.log($rootScope.hasEditor);
       //event.preventDefault();
       //$scope.$apply();
       //$route.reload();
@@ -47,6 +49,15 @@ app
         $scope.codeEditorInterface = GWContainer.get('GWCodeEditorInterface');
         $scope.codeEditor = $scope.codeEditorInterface.getCodeEditor();
 
+
+        $http.get($rootScope.api.routes.projects+'/'+$scope.project_id)
+          .then(function (response) {
+              $scope.project = response.data.project;
+              console.log($scope.project)
+            },
+            function (response) {
+
+            }) ;
 
       }catch (e){
         $location.path($route.getUndecoratedRoute('error')).search({

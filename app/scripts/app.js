@@ -35,7 +35,7 @@ app
         templateUrl: 'views/project/new.html',
         controller: 'newProjectCtrl'
       })
-      .when('/editor/:component_type?', {
+      .when('/editor/:component_type?/:id', {
         name: 'editorWithCompent',
         templateUrl: 'views/editor/container.html',
         controller: 'editorCtrl'
@@ -127,9 +127,12 @@ app.run(function($rootScope, $route) {
     viewContainer : 'idviewContainer'
   };
 
+  var API = 'http://localhost:16791/gwa/';
   $rootScope.api = {
-    url : function () {
-      return 'http://localhost:16791/gwa/';
+    url : API,
+    routes : {
+      project_new : (API+'project'),
+      projects : (API+'project')
     },
     token : function () {
       return "emptyToken";

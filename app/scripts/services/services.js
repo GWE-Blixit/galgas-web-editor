@@ -88,7 +88,16 @@ app.service('dataProvider', function () {
     },
     getTargets : function () {
       return [
-        'makefile-unix','makefile-linux-32', 'makefile-linux-64','makefile-mac', 'makefile-win-32', 'makefile-win-64'
+        'makefile-unix',
+        'makefile-macosx',
+        'makefile-x86linux32-on-macosx',
+        'makefile-x86linux64-on-macosx',
+        'makefile-win32-on-macosx',
+        'LatestMacOS',
+        'codeblocks-windows',
+        'codeblocks-linux32',
+        'codeblocks-linux64',
+        'codeblocks-mac'
       ];
     },
     getProperties : function () {

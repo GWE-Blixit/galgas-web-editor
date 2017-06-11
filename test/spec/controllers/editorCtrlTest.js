@@ -13,23 +13,44 @@ describe('Controller: editorCtrl', function () {
     templateHtml,
     httpBackend,
     $routeParams,
-  $location;
+    $location,
+    $compile,
+    viewElement,
+    viewHtml
+    ;
 
    // Initialize the controller and a mock scope
-   beforeEach(inject(function ($controller, $rootScope, $httpBackend, _$location_, _$routeParams_) {
+   beforeEach(inject(function ($controller, $rootScope, $httpBackend, _$location_, _$routeParams_, _$compile_) {
 
      scope = $rootScope.$new();
      httpBackend = $httpBackend;
      $routeParams = _$routeParams_;
      $location = _$location_;
+     $compile = _$compile_;
+     viewElement = angular.element(viewHtml);
+     var element = $compile(viewElement)($rootScope);
+     $rootScope.$digest();
+
      editorCtrl = $controller('editorCtrl', {
        $scope: scope
        // place here mocked dependencies
      });
 
-     //templateHtml = httpBackend.expectGET('/editor').respond([]);
-
    }));
+
+  beforeEach(inject(function($templateCache) {
+    var view = '#!/editor';
+    viewHtml = $templateCache.get(view);
+    if(!viewHtml) {
+      viewHtml = $.ajax(view, {async: false}).responseText;
+      $templateCache.put(view, viewHtml);
+    }
+  }));
+
+   afterEach(function () {
+     httpBackend.verifyNoOutstandingExpectation();
+     httpBackend.verifyNoOutstandingRequest();
+   });
 
   it('default values', function () {
 
@@ -67,9 +88,20 @@ describe('Controller: editorCtrl', function () {
   });
 
   it('should test onWriterLoaded method', function () {
+/*
+    var aceeditor = viewElement.find('#editor');
+    var console_ = viewElement.find('#console');
+    //expect(console_.is(':visible')).to.be(true);
 
+    var buttonVisibility = viewElement.find('#console_visibility_toggler');
+    buttonVisibility.trigger('click');
 
+    //ace.edit('editor');
+    console.log(aceeditor.html());
+    //console.log(console_);
 
+    expect(scope.onWriterLoaded).to.throwException()
+*/
   });
 
 });
